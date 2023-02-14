@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+
 import './App.css';
+import Chat from './Componentes/Chat';
+import Inicio from './Componentes/Inicio';
+import Login from './Componentes/Login';
+import Saldos from './Componentes/Saldos';
+import Menu from './Componentes/Ui/Menu';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Menu />
+        <Routes>
+        <Route path='' element={<Navigate to={'/inicio'} replace />} />
+          <Route path='inicio' element={<Inicio/>} />
+          <Route path='saldos' element={<Saldos/>} />
+          <Route path='login' element={<Login/>} />
+          <Route path='chat' element={<Chat/>} />
+        </Routes>
+
+      </div>
+    </BrowserRouter>
   );
 }
+
 
 export default App;
