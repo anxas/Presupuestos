@@ -6,12 +6,14 @@ import Inicio from './Componentes/Inicio';
 import Login from './Componentes/Login';
 import Saldos from './Componentes/Saldos';
 import Menu from './Componentes/Ui/Menu';
+import Navbar from './Componentes/Ui/Navbar';
 
 function App() {
   return (
+    
     <BrowserRouter>
       <div className="App">
-        <Menu />
+      <Navbar/>
         <Routes>
         <Route path='' element={<Navigate to={'/inicio'} replace />} />
           <Route path='inicio' element={<Inicio/>} />
@@ -19,9 +21,11 @@ function App() {
           <Route path='login' element={<Login/>} />
           <Route path='chat' element={<Chat/>} />
         </Routes>
+        
 
       </div>
     </BrowserRouter>
+  
   );
 }
 
