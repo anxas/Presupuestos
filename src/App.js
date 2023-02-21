@@ -3,9 +3,8 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Chat from './Componentes/Chat';
 import Inicio from './Componentes/Inicio';
-import Login from './Componentes/Login';
+import Login from './Componentes/InicioSesion';
 import Saldos from './Componentes/Saldos';
-import Menu from './Componentes/Ui/Menu';
 import Navbar from './Componentes/Ui/Navbar';
 
 function App() {

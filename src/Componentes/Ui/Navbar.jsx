@@ -12,20 +12,24 @@ function Navbar() {
   }
   return (
     <>
+    <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
       <NavContainer>
         <h2>My <span> Slice</span></h2>
         <div className={`links ${clicked ? 'active' : ''}`}>
-          <a onClick={handleClick} href="#h" >Home</a>
+          <a onClick={handleClick} href="#" >Home</a>
+          <a onClick={handleClick} href="#" >Home</a>
+          <a onClick={handleClick} href="#" >Home</a>
+          <a onClick={handleClick} href="#" >Home</a>
         </div>
-        <div>
-          <a className='links'>About</a>
-          <a className='links'>Contact</a>
+        <div className='links'>
+          <a href='#'>About</a>
+          <a  href='#'>Contact</a>
         </div>
        
         <div className='burguer'>
           <Hamburguesa clicked={clicked} handleClick={handleClick} />
         </div>
-        <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
+        
       </NavContainer>
     </>
   )
@@ -41,11 +45,14 @@ const NavContainer = styled.nav`
       font-weight: bold;
     }
   }
+  z-index: 2;
+  position: relative;
   padding: .4rem;
   background-color: #535353;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  
   a{
     color: white;
     text-decoration: none;
@@ -53,9 +60,10 @@ const NavContainer = styled.nav`
   }
  
   .links{
-    position: absolute;
-    top: -100px;
    
+    position: absolute;
+    top: -200px;
+    left: 0%;
     right: 0;
     margin-left: auto;
     margin-right: auto;
@@ -73,6 +81,7 @@ const NavContainer = styled.nav`
         font-size: 1rem;
         color: white;
         display: inline;
+        
       }
       
       display: block;
@@ -83,13 +92,16 @@ const NavContainer = styled.nav`
     
   }
   .links.active{
+  
     width: 100%;
-    display: block;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     position: absolute;
     margin-left: auto;
     margin-right: auto;
-    top: 25%;
-    left: 0;
+    top: 175%;
+
     right: 0;
     text-align: center;
     a{
@@ -114,7 +126,7 @@ const BgDiv = styled.div`
   width: 100%;
   height: 100%;
   z-index: -1;
-  transition: all .5s ease ;
+
   
   &.active{
     border-radius: 0 0 40% 40% ;
@@ -122,6 +134,8 @@ const BgDiv = styled.div`
     left: 0;
     width: 100%;
     height: 50%;
+    z-index: auto;
+    transition: all .5s ease-out;
   }
 `
 
