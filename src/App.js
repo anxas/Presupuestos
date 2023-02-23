@@ -2,7 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import './App.css';
 import Chat from './Componentes/Chat';
-import Inicio from './Componentes/Inicio';
+import Grupos from './Componentes/Grupos';
 import Login from './Componentes/InicioSesion';
 import Saldos from './Componentes/Saldos';
 import Navbar from './Componentes/Ui/Navbar';
@@ -14,8 +14,8 @@ function App() {
       <div className="App">
       <Navbar/>
         <Routes>
-        <Route path='' element={<Navigate to={'/inicio'} replace />} />
-          <Route path='inicio' element={<Inicio/>} />
+        <Route path='' element={<Navigate to={'/login'} replace />} />
+          <Route path='grupos' element={<Grupos/>} />
           <Route path='saldos' element={<Saldos/>} />
           <Route path='login' element={<Login/>} />
           <Route path='chat' element={<Chat/>} />

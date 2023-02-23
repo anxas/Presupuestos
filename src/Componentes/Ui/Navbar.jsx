@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Hamburguesa from './Hamburguesa'
+import { Link } from "react-router-dom";
 
 
 function Navbar() {
@@ -14,15 +15,30 @@ function Navbar() {
     <>
     <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
       <NavContainer>
+        <LogoTitulo>
+          {<img src={require('../img/logo.png')}/> } 
         <h2>My <span> Slice</span></h2>
+        </LogoTitulo>
+      
         <div className={`links ${clicked ? 'active' : ''}`}>
-          <a onClick={handleClick} href="#" >Home</a>
-          <a onClick={handleClick} href="#" >Home</a>
-          <a onClick={handleClick} href="#" >Home</a>
-          <a onClick={handleClick} href="#" >Home</a>
+          { <HomeTitulo>
+            {<img onClick={handleClick} src={require('../img/home.png')}/>}
+          </HomeTitulo> }
+             {/* <Link onClick={handleClick} to={'/inicio'}>
+                Inicio
+            </Link>
+            <Link onClick={handleClick} to={'/saldos'}>
+                Saldos
+            </Link>
+            <Link onClick={handleClick} to={'/login'}>
+                Login
+            </Link>
+            <Link  onClick={handleClick} to={'/chat'}>
+                Chat
+            </Link> */}
         </div>
         <div className='links'>
-          <a href='#'>About</a>
+          <a href='/presupuestos/src/Componentes/info/About.jsx'>About</a>
           <a  href='#'>Contact</a>
         </div>
        
@@ -36,6 +52,20 @@ function Navbar() {
 }
 
 export default Navbar
+
+
+const HomeTitulo = styled.div`
+  img{
+    width: 60px;
+  }
+`
+const LogoTitulo = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  img{
+    width: 80px;
+  }
+`
 
 const NavContainer = styled.nav`
   h2{
@@ -116,6 +146,7 @@ const NavContainer = styled.nav`
       
     }
   }
+  
 `
 
 const BgDiv = styled.div`
