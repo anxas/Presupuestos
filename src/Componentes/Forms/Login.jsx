@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { useForm } from "react-hook-form";
-
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 
 
@@ -9,7 +10,7 @@ const Login = () => {
 
     const { register, handleSubmit } = useForm();
 
-    const onSubmit = (values) => {
+    const onSubmit = async (values) => {
         console.log(values);
     }
 

@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { useForm } from "react-hook-form";
-
+// import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import Swal from 'sweetalert2'
 
 
 
@@ -9,8 +11,23 @@ const Registro = () => {
 
     const { register, handleSubmit } = useForm();
 
-    const onSubmit = (values) => {
-        console.log(values);
+    const onSubmit = async (values) => {
+        const res = await axios.post('http://localhost:3000/login/register', values);
+        if (res.data.fatal) {
+            console.log(values)
+            Swal.fire({
+                title: 'Revisa los parametros introducidos!',
+                text: res.data.fatal,
+                icon: 'error'
+            })
+        } else {
+            await Swal.fire({
+                title: 'Felicidades!',
+                text: 'Te has registrado correctamente',
+                icon: 'success'
+            })
+            
+        }
     }
 
     return (
@@ -21,13 +38,13 @@ const Registro = () => {
             <h2>Registrate</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
 
-                <input type="text" placeholder='Nombre' {...register('nombre')} />
+                <input type="text" placeholder='Nombre' {...register('userName')} />
 
-                <input type="text" placeholder='Apellido' {...register('apellido')} />
+                <input type="text" placeholder='Apellido' {...register('userSurname')} />
 
-                <input type="email" placeholder='Email' {...register('email')} />
+                <input type="email" placeholder='Email' {...register('userEmail')} />
 
-                <input type="number" placeholder='Telefono' {...register('telefono')} />
+                <input type="number" placeholder='Telefono' {...register('userPhone')} />
 
                 <input type="password" placeholder='Password' {...register('password')} />
 
