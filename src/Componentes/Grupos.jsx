@@ -15,6 +15,12 @@ const Grupos = () => {
                 </div>
                 <a href="#">➔</a>
             </GruposDiv>
+            <div>
+                <input type="text" placeholder="Concepto"/>
+                <input type="text" placeholder="participantes"/>
+                <button type="submit">Agregar</button>
+            </div>
+
         </div>
     )
 }

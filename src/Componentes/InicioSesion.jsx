@@ -16,7 +16,7 @@ const InicioSesion = () => {
 const Formularios = styled.div`
     display: flex;
     justify-content: space-evenly;
-     margin-top: 3%;
+    align-items: flex-start;
    @media(max-width: 1000px){
     display: flex;
     flex-direction: column;

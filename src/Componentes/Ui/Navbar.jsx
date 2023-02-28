@@ -13,39 +13,66 @@ function Navbar() {
   }
   return (
     <>
-    <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
+      <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
       <NavContainer>
         <LogoTitulo>
-          {<img src={require('../img/logo.png')}/> } 
-        <h2>My <span> Slice</span></h2>
+          {<img src={require('../img/logo.png')} />}
+          <h2>My <span> Slice</span></h2>
         </LogoTitulo>
-      
+
         <div className={`links ${clicked ? 'active' : ''}`}>
-          { <HomeTitulo>
-            {<img onClick={handleClick} src={require('../img/home.png')}/>}
-          </HomeTitulo> }
-             {/* <Link onClick={handleClick} to={'/inicio'}>
-                Inicio
-            </Link>
-            <Link onClick={handleClick} to={'/saldos'}>
+
+          {(() => {
+            if (clicked) {
+              return (<div>
+                <Link onClick={handleClick} to={'/grupos'}>
+                  Grupos
+                </Link>
+                <Link onClick={handleClick} to={'/saldos'}>
+                  Saldos
+                </Link>
+                <Link onClick={handleClick} to={'/login'}>
+                  Login
+                </Link>
+                <Link onClick={handleClick} to={'/chat'}>
+                  Chat
+                </Link>
+              </div>);
+            } else {
+              return (<HomeTitulo>
+                {<img clicked={clicked} onClick={handleClick} src={require('../img/home.png')} />}
+              </HomeTitulo>);
+            }
+          })()}
+          {/* {(clicked) ? (
+            <div>
+              <Link onClick={handleClick} to={'/grupos'}>
+                Grupos
+              </Link>
+              <Link onClick={handleClick} to={'/saldos'}>
                 Saldos
-            </Link>
-            <Link onClick={handleClick} to={'/login'}>
+              </Link>
+              <Link onClick={handleClick} to={'/login'}>
                 Login
-            </Link>
-            <Link  onClick={handleClick} to={'/chat'}>
+              </Link>
+              <Link onClick={handleClick} to={'/chat'}>
                 Chat
-            </Link> */}
+              </Link>
+            </div>
+          ) : (<HomeTitulo>
+            {<img clicked={clicked} onClick={handleClick} src={require('../img/home.png')} />}
+          </HomeTitulo>)} */}
+
         </div>
         <div className='links'>
-          <a href='/presupuestos/src/Componentes/info/About.jsx'>About</a>
-          <a  href='#'>Contact</a>
+          <a href='/about'>About</a>
+          <a href='/contact'>Contact</a>
         </div>
-       
+
         <div className='burguer'>
           <Hamburguesa clicked={clicked} handleClick={handleClick} />
         </div>
-        
+
       </NavContainer>
     </>
   )
@@ -68,6 +95,7 @@ const LogoTitulo = styled.div`
 `
 
 const NavContainer = styled.nav`
+
   h2{
     color: #ffffff;
     font-weight: 400;
@@ -122,7 +150,16 @@ const NavContainer = styled.nav`
     
   }
   .links.active{
+    div{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: -2.5em;
+  a{
+    font-size: 2.5em;
   
+  }
+}
     width: 100%;
     display: flex;
     justify-content: center;
@@ -139,6 +176,7 @@ const NavContainer = styled.nav`
       margin-top: 1rem;
       color: white;
     }
+    
   }
   .burguer{
     @media(min-width: 768px){

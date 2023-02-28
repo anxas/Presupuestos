@@ -8,7 +8,7 @@ import axios from "axios";
 
 const Login = () => {
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = async (values) => {
         console.log(values);
@@ -19,13 +19,33 @@ const Login = () => {
 
 
         <Container>
-            <h2>Inicia Sesion</h2>
+            <h2>Inicia Sesi&oacute;n</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
 
-                <input type="email" placeholder='Email' {...register('email')} />
+                <input type="email" placeholder='Email' {...register('userEmail', {
+                    required: true,
+                    pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i
+                })} />
+                <div>
+                    <p> {(errors.userEmail?.type === 'required') &&
+                        "Este campo es obligatorio"
+                    }
+                        {(errors.userEmail?.type === 'pattern') &&
+                            "El formato es incorrecto"
+                        }
+                    </p>
+
+                </div>
 
 
-                <input type="password" placeholder='Password' {...register('password')} />
+                <input type="password" placeholder='Password' {...register('password', {
+                    required: true
+                })} />
+
+                <div>
+                    <p></p>
+                </div>
+                
                 <div>
                     <button type="submit">Enviar</button>
                 </div>
@@ -42,7 +62,7 @@ const Container = styled.div`
         align-items: center;
         flex-direction: column;
         width: 100%;
-        margin-top: 3%;
+        margin-top: 4%;
         border-radius: 5%;
         box-shadow:4px 5px 5px #bbbaba;
         background: #d4d4d4;
@@ -52,6 +72,7 @@ const Container = styled.div`
     h2{
     font-size: 1.5em;
     text-align: center;
+    margin-top: 0;
     }
  
     input{
@@ -81,9 +102,19 @@ const Container = styled.div`
         }
 
     }   
+    form{
+    width: 100%;
+    } 
     div{
-   display: flex;
-   justify-content: center;
+        display: flex;
+        justify-content: flex-start;
+        margin: 0;
+        p{ height: 1em;
+            margin: 0;
+            font-size: 0.8em;
+            color: #d80533;
+            font-weight: 600;
+        }
     }
 `
 export default Login;
