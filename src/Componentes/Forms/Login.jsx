@@ -1,17 +1,22 @@
 import styled from 'styled-components'
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 
-
+// http://localhost:3000/login/
 
 const Login = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = async (values) => {
-        console.log(values);
+        const res = await axios.post('http://localhost:3000/login/', values)
+        if (res.data.fatal) {
+            console.log(res.data.fatal)
+        }else{
+            console.log('bienvenido')
+        }
+
     }
 
     return (

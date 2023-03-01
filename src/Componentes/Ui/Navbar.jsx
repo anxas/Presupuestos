@@ -40,7 +40,7 @@ function Navbar() {
               </div>);
             } else {
               return (<HomeTitulo>
-                {<img clicked={clicked} onClick={handleClick} src={require('../img/home.png')} />}
+                {<img onClick={handleClick} src={require('../img/home.png')} />}
               </HomeTitulo>);
             }
           })()}
@@ -203,7 +203,7 @@ const BgDiv = styled.div`
     left: 0;
     width: 100%;
     height: 50%;
-    z-index: auto;
+    z-index: 2;
     transition: all .5s ease-out;
   }
 `
