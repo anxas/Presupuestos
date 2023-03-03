@@ -1,10 +1,29 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Hamburguesa from './Hamburguesa'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSetLoggedContext } from '../Provider/LoggedProvider';
+import Swal from 'sweetalert2'
 
 
 function Navbar() {
+
+  const setIsLogged = useSetLoggedContext();
+
+  const navigate = useNavigate()
+
+  const onLogout = async() => {
+      
+      localStorage.removeItem('token');
+      console.log('te has deslogueado')
+      setIsLogged(false);
+      navigate('/login');
+      await Swal.fire({
+        title: 'Logout correcto',
+        text: 'Esperamos verte de nuevo pronto',
+        icon: 'success'
+    })
+  }
 
   const [clicked, setClicked] = useState(false)
   const handleClick = () => {
@@ -67,6 +86,7 @@ function Navbar() {
         <div className='links'>
           <a href='/about'>About</a>
           <a href='/contact'>Contact</a>
+          <button onClick={onLogout}>Logout</button>
         </div>
 
         <div className='burguer'>
@@ -118,7 +138,16 @@ const NavContainer = styled.nav`
   }
  
   .links{
-   
+   button{
+    color: white;
+    border-radius: 10px;
+    border:  black 0.5px;
+    padding: 5px;
+    background-color: #C30F79;
+    :hover{
+      background-color: #af126e;
+    }
+   }
     position: absolute;
     top: -200px;
     left: 0%;

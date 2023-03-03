@@ -1,30 +1,22 @@
 import styled from "styled-components";
 
-const Grupos = () => {
+const CardGrupos = ({ groupTitle, groupDescription }) => {
     return (
-        <div>
-            <div>
-                <h3>Grupos</h3>
-            </div>
             <GruposDiv>
                 <div>
                     <h3>
-                        Concepto
+                        {groupTitle}
                     </h3>
-                    <p> Participantes</p>
+                    <p> {groupDescription}</p>
                 </div>
                 <a href="#">➔</a>
             </GruposDiv>
-            <div>
-                <input type="text" placeholder="Concepto"/>
-                <input type="text" placeholder="participantes"/>
-                <button type="submit">Agregar</button>
-            </div>
+            
 
-        </div>
+      
     )
 }
-export default Grupos;
+export default CardGrupos;
 
 const TituloDiv = styled.div`
     

@@ -1,20 +1,50 @@
 import styled from 'styled-components'
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import Swal from 'sweetalert2'
+
+import jwtDecode from "jwt-decode";
+
+import { useState } from 'react';
+import { useLocalStorage } from '../../Hooks';
+import { useSetLoggedContext, useSetRoleContext } from '../Provider/LoggedProvider';
+import { useNavigate } from 'react-router-dom';
 
 
 // http://localhost:3000/login/
 
 const Login = () => {
 
+    
+
     const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const [error, setError] = useState('');
+    const [token, setToken] = useLocalStorage('token');
+
+    const setIsLogged = useSetLoggedContext();
+    const setRole = useSetRoleContext();
 
     const onSubmit = async (values) => {
         const res = await axios.post('http://localhost:3000/login/', values)
+
         if (res.data.fatal) {
-            console.log(res.data.fatal)
-        }else{
-            console.log('bienvenido')
+            setError(res.data.fatal)
+            Swal.fire({
+                title: 'Revisa los parametros introducidos!',
+                icon: 'error'})
+        } else {
+            setError('');
+            setToken(res.data.token);
+            setRole(jwtDecode(res.data.token)['user_role']);
+            setIsLogged(true);
+            await Swal.fire({
+                title: 'Sesion iniciada correctamente',
+                icon: 'success'
+            })
+
+            console.log(res.data.token)
+
         }
 
     }
@@ -22,43 +52,44 @@ const Login = () => {
     return (
 
 
+            <Container>
+                <h2>Inicia Sesi&oacute;n</h2>
+                <form onSubmit={handleSubmit(onSubmit)}>
 
-        <Container>
-            <h2>Inicia Sesi&oacute;n</h2>
-            <form onSubmit={handleSubmit(onSubmit)}>
+                    <input type="email" placeholder='Email' {...register('userEmail', {
+                        required: true,
+                        pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i
+                    })} />
 
-                <input type="email" placeholder='Email' {...register('userEmail', {
-                    required: true,
-                    pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i
-                })} />
-                <div>
-                    <p> {(errors.userEmail?.type === 'required') &&
-                        "Este campo es obligatorio"
-                    }
-                        {(errors.userEmail?.type === 'pattern') &&
-                            "El formato es incorrecto"
+                    <div>
+                        <p> {(errors.userEmail?.type === 'required') &&
+                            "Este campo es obligatorio"
                         }
-                    </p>
+                            {(errors.userEmail?.type === 'pattern') &&
+                                "El formato es incorrecto"
+                            }
+                        </p>
 
-                </div>
-
-
-                <input type="password" placeholder='Password' {...register('password', {
-                    required: true
-                })} />
-
-                <div>
-                    <p></p>
-                </div>
-                
-                <div>
-                    <button type="submit">Enviar</button>
-                </div>
-            </form>
-        </Container>
+                    </div>
 
 
+                    <input type="password" placeholder='Password' {...register('password', {
+                        required: true
+                    })} />
 
+                    <div>
+                        <p></p>
+                    </div>
+
+                    <div>
+                        <button type="submit">Enviar</button>
+
+                    </div>
+
+                </form>
+
+            </Container>      
+   
     );
 }
 
@@ -122,4 +153,5 @@ const Container = styled.div`
         }
     }
 `
+
 export default Login;

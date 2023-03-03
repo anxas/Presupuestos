@@ -1,15 +1,20 @@
 import styled from 'styled-components'
 import Registro from './Forms/Registro';
 import Login from './Forms/Login';
+import { useNavigate } from 'react-router-dom';
+import { useSetLoggedContext } from './Provider/LoggedProvider';
+
+
 const InicioSesion = () => {
 
 
-    return (
-        <Formularios>
-            <Registro></Registro>
-            <Login></Login>
-        </Formularios>
+ 
 
+    return (
+            <Formularios>
+                <Registro></Registro>
+                <Login></Login>
+            </Formularios>     
     )
 }
 
