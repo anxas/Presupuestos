@@ -1,9 +1,144 @@
+import styled from "styled-components";
+import Contacto from "../Forms/Contacto";
+
+
 const Contact = () => {
-    return(
-    <div>
-        <h3>Contacto</h3>
-    </div>
+    return (
+        <TresColumnas>
+            <ColumnaPerfiles>
+                <CardPerfil>
+                    <figure>
+                        <a href="https://www.instagram.com/_anft_/" target={"_blank"}> {<img src={require('../img/image00084.jpg')} />}</a>
+                    </figure>
+                    <h4>Andreas Freixas</h4>
+                    <p>Frontend Developer</p>
+                    <Iconos>
+                        <a href="https://github.com/anxas" target={"_blank"}>{<img src={require('../img/github.png')} />}</a>
+                        <a href="https://discord.gg/fUt4NNM3GK" target={"_blank"}>{<img src={require('../img/discord.jpg')} />}</a>
+                    </Iconos>
+                </CardPerfil>
+                <CardPerfil>
+                    <figure>
+                        <a href="#" target={"_blank"}> {<img src={require('../img/title-1646064462.jpg')} />}</a>
+                    </figure>
+                    <h4>Pedro Ortega</h4>
+                    <p>BackEnd Developer</p>
+                    <Iconos>
+                        <a href="#" target={"_blank"}>{<img src={require('../img/github.png')} />}</a>
+                        <a href="#" target={"_blank"}>{<img src={require('../img/discord.jpg')} />}</a>
+                    </Iconos>
+                </CardPerfil>
+            </ColumnaPerfiles>
+
+            <ColumnaCorreo>
+                 <Contacto />
+            </ColumnaCorreo>
+
+        </TresColumnas>
     )
 }
 
 export default Contact;
+
+const TresColumnas = styled.div`
+    display: flex;
+    flex-direction: row;
+    @media(max-width: 767px){
+        flex-direction: column;
+    }
+
+`
+
+const ColumnaCorreo = styled.div`
+    width: 75%;
+    @media(max-width: 1300px){
+        width: 66%;
+    }
+    @media(max-width: 767px){
+       width: 100%;
+       align-items: center;
+       margin: 0% 3% 3% 0%;
+    }
+    margin: 1%;
+    display: grid;
+    align-items: center;
+    align-items: center;
+    margin-bottom: 3%;
+    justify-items: center;
+`
+
+const ColumnaPerfiles = styled.div`
+    width: 25%;
+    @media(max-width: 1300px){
+        width: 33%;
+    }
+    @media(max-width: 767px){
+       width: 100%;
+    }
+figure{
+    :hover{
+       box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+    }
+}
+    margin:1%;
+    display: grid;
+    align-items: center;
+    margin-bottom: 3%;
+    justify-items: center;
+    h4{
+        color: white;
+        text-align: center;
+        font-size: 1.5em;
+        margin: 5%;
+    }
+    p{
+        color: white ;
+        margin-top: 0%;
+        text-align: center;
+    }
+    figure{
+       display: flex;
+
+        width: 12.625em;
+        height: 12.625em;
+        overflow: hidden;
+        margin: 10px;
+        position: relative;
+        border-radius: 50%;
+        img{
+            display: flex;
+            position:absolute;
+            width: 18.750em;
+            height: 22.500em;
+            left: -100%;
+            right: -80%;
+            top: -100%;
+            bottom: -80%;
+            margin: auto;
+        }
+    }
+`
+
+const Iconos = styled.div`
+      display: flex;
+     flex-direction: row;
+    justify-content: space-around;
+    width: 50%;
+     img{
+        display: flex;
+        width: 2em;
+        height: 2em;
+        
+     }
+`
+const CardPerfil = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    border-radius: 10px;
+    background: rgb(239,239,239);
+background: linear-gradient(180deg, rgba(239,239,239,1) 35%, #b1b1b1 35% , rgba(0,0,0,1) 100%);
+`

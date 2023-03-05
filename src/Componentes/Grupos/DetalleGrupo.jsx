@@ -11,7 +11,7 @@ const DetalleGrupo = () => {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await axios.get(` http://localhost:3000/users/home/`);
+            const response = await axios.get(`http://localhost:3000/users/groups`);
             // /${userId}
             setUser(response.data);
             console.log(response.data)
