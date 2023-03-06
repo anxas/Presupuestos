@@ -47,9 +47,9 @@ function Navbar() {
                 <Link onClick={handleClick} to={'/grupos'}>
                   Grupos
                 </Link>
-                <Link onClick={handleClick} to={'/saldos'}>
+                {/* <Link onClick={handleClick} to={'/saldos'}>
                   Saldos
-                </Link>
+                </Link> */}
                 <Link onClick={handleClick} to={'/login'}>
                   Login
                 </Link>
@@ -102,6 +102,7 @@ export default Navbar
 
 
 const HomeTitulo = styled.div`
+cursor: pointer;
   img{
     width: 60px;
   }
@@ -183,7 +184,7 @@ const NavContainer = styled.nav`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-top: -2.5em;
+  margin-top: -0.5em;
   a{
     font-size: 2.5em;
   

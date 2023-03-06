@@ -2,6 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import './App.css';
 import Chat from './Componentes/Chat';
+import DetalleGrupo from './Componentes/Grupos/DetalleGrupo';
 import Grupos from './Componentes/Grupos/Grupos';
 
 import LoginGuard from './Componentes/guards/LoginGuard';
@@ -26,6 +27,7 @@ function App() {
                 <Grupos></Grupos>
                </LoginGuard>
                 } />
+            <Route path='grupo/:groupId' element={<DetalleGrupo/>}></Route>
             <Route path='saldos' element={<Saldos />} />
             <Route path='login' element={<Login />} />
             <Route path='chat' element={<Chat />} />

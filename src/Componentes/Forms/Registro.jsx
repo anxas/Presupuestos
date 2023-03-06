@@ -20,13 +20,14 @@ const Registro = () => {
                 text: res.data.fatal,
                 icon: 'error'
             })
+
         } else {
             await Swal.fire({
                 title: 'Felicidades!',
                 text: 'Te has registrado correctamente',
                 icon: 'success'
             })
-
+            values = {}
         }
     }
 

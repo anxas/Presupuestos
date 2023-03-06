@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import FormGrupo from "../Forms/FormGrupo";
 import CardGrupos from "./CardGrupos";
+import DetalleGrupo from "./DetalleGrupo";
 
 
 const Grupos = () => {
@@ -10,9 +12,9 @@ const Grupos = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await axios.get('http://localhost:3000/users/groups');
+            const res = await axios.get('http://localhost:3000/users/groups/');
             setArrGrupos(res.data);
-            console.log(res.data)
+
         }
         fetchData();
     }, []);
@@ -20,19 +22,14 @@ const Grupos = () => {
     return (
         <div>
             <div>
-                 {arrGrupos.map(group => (
-                    <Link key={group.id} to={`/grupo/${group.id}`}>
+                {arrGrupos.map(group => (
+                    <Link key={group.groupId} to={`/grupo/${group.groupId}`}>
                         <CardGrupos {...group} />
                     </Link>
-                ))} 
-                <CardGrupos></CardGrupos>
+                ))}
             </div>
+            <FormGrupo></FormGrupo>
 
-            <div>
-                <input type="text" placeholder="Concepto" />
-                <input type="text" placeholder="participantes" />
-                <button type="submit">Agregar</button>
-            </div>
         </div>
     )
 }
