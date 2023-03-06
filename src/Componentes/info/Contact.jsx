@@ -31,6 +31,7 @@ const Contact = () => {
             </ColumnaPerfiles>
 
             <ColumnaCorreo>
+            <h3>Contactanos</h3>
                  <Contacto />
             </ColumnaCorreo>
 
@@ -51,6 +52,7 @@ const TresColumnas = styled.div`
 
 const ColumnaCorreo = styled.div`
     width: 75%;
+    height: 100%;
     @media(max-width: 1300px){
         width: 66%;
     }
@@ -65,10 +67,28 @@ const ColumnaCorreo = styled.div`
     align-items: center;
     margin-bottom: 3%;
     justify-items: center;
+    grid-template-rows: auto 8fr;
+    h3{
+       
+        font-size: 3em;
+        color: transparent;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        text-shadow: 0px 3px 3px rgba(255,255,255,0.5);color: transparent;
+        background: #535353;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        text-shadow: 0px 3px 3px rgba(255,255,255,0.5);
+        margin-bottom: 2%;
+        margin-top:1.5%;
+    }
 `
 
 const ColumnaPerfiles = styled.div`
     width: 25%;
+    height: 100%;
     @media(max-width: 1300px){
         width: 33%;
     }
@@ -83,7 +103,7 @@ figure{
     margin:1%;
     display: grid;
     align-items: center;
-    margin-bottom: 3%;
+    margin-bottom: 2%;
     justify-items: center;
     h4{
         color: white;

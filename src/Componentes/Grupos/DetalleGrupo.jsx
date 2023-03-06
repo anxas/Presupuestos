@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useLocalStorage } from "../../Hooks";
 import CardGrupos from "./CardGrupos";
 
 const DetalleGrupo = () => {
@@ -11,17 +12,20 @@ const DetalleGrupo = () => {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await axios.get(`http://localhost:3000/users/groups`);
-            // /${userId}
-            setUser(response.data);
-            console.log(response.data)
+            const response = await 
+            axios.get(`http://localhost:3000/users/groups`)
         }
         fetchData();
     }, [userId]);
+    
 
     return (
-        <div>
-            {user ? (<CardGrupos {...grupo} /> ):<p>Recuperando cliente</p>}
+        // <div>
+        //      <h3> hola</h3>
+        //     <p> </p>
+        // </div>
+         <div>
+            {grupo ? (<CardGrupos {...grupo} /> ): <p>Recuperando cliente</p>}
         </div>
     );
 }

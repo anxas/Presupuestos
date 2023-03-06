@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Typewriter from 'typewriter-effect';
+import Test from './Test';
 
 
 
@@ -7,25 +8,35 @@ const About = () => {
 
 
     return (
-        <Contenedor>
+        <div>
             <div>
-                <h3>Con My Slice puedes . . .</h3>
+                <h2>Que es MySlice?</h2>
+                <h3>MySlice es una app creada en 2023 por <a href='/contact'>Pedro y Andreas</a> para los amantes del orden, con la que simplificar gastos de la vida diaria  </h3>
+                <h4>Quieres saber si esta app es para ti? Haz el test y obtendras el resultado</h4>
+                <Test></Test>
             </div>
-            <Escribiendo>
+            <Contenedor>
+                <div>
+                    <h3>Con My Slice puedes . . .</h3>
+                </div>
+                <Escribiendo>
 
-                <Typewriter
-                    options={{
-                        strings: ['Crear Grupos', 'Ajustar cuentas', 'Chatear', 'Introducir pagos'],
-                        autoStart: true,
-                        loop: true,
-                       
-                    }}
-                />
-            </Escribiendo>
+                    <Typewriter
+                        options={{
+                            strings: ['Crear Grupos', 'Ajustar cuentas', 'Chatear', 'Introducir pagos'],
+                            autoStart: true,
+                            loop: true,
 
-        </Contenedor >
+                        }}
+                    />
+                </Escribiendo>
+
+            </Contenedor >
+        </div>
     )
 }
+
+
 
 export default About;
 

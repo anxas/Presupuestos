@@ -102,6 +102,7 @@ export default Navbar
 
 
 const HomeTitulo = styled.div`
+cursor: pointer;
   img{
     width: 60px;
   }

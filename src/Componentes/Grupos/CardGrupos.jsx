@@ -9,7 +9,7 @@ const CardGrupos = ({ groupTitle, groupDescription }) => {
                     </h3>
                     <p> {groupDescription}</p>
                 </div>
-                <a href="#">➔</a>
+                {/* <a href="#">➔</a> */}
             </GruposDiv>
             
 
@@ -25,8 +25,8 @@ const GruposDiv = styled.div`
     background: rgb(149,148,148);
     background: linear-gradient(180deg, rgba(149,148,148,1) 0%, rgba(59,58,58,1) 100%, rgba(255,255,255,0) 100%);
     border-radius: 10px;
-    padding: 1em;
-    margin: 0em 4em ;
+    padding: 0.5em;
+    margin: 2em 4em ;
     display: flex;
     justify-content: space-between;
     a{  text-shadow: -2px 2px black, 0 2px black, 1px 0 black, 0 -1px black;
