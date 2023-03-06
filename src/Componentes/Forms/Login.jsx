@@ -15,7 +15,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
-    
+    const navigate = useNavigate();
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -42,7 +42,8 @@ const Login = () => {
                 title: 'Sesion iniciada correctamente',
                 icon: 'success'
             })
-
+            
+            navigate('/grupos')
             console.log(res.data.token)
 
         }

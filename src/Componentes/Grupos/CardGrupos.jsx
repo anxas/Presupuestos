@@ -1,19 +1,27 @@
+import axios from "axios";
+import { useEffect } from "react";
 import styled from "styled-components";
 
-const CardGrupos = ({ groupTitle, groupDescription }) => {
-    return (
-            <GruposDiv>
-                <div>
-                    <h3>
-                        {groupTitle}
-                    </h3>
-                    <p> {groupDescription}</p>
-                </div>
-                {/* <a href="#">➔</a> */}
-            </GruposDiv>
-            
+const CardGrupos = ({ groupTitle, groupDescription, players }) => {
 
-      
+
+
+    return (
+        <GruposDiv>
+            <div>
+                <h3>
+                    {groupTitle}
+                </h3>
+                <p> {groupDescription}</p>
+                {/* <p>{players.forEach(element => {
+                    return(element.player)
+                })}</p> */}
+            </div>
+
+        </GruposDiv>
+
+
+
     )
 }
 export default CardGrupos;

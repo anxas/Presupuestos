@@ -47,11 +47,12 @@ const Formulario = styled.form`
     flex-direction: column;
     width: 85%;
     margin-top: 2%;
-    background-image: linear-gradient(to left top, #c30f79, #5f4d58, #535353);
+    background-color: #636262;
     padding: 2em;
     border-radius: 10px;
     box-shadow: 3px 3px 10px -2px rgba(116, 115, 115, 0.83);
     label{
+        
         margin: 0.5em 0em;
         font-size: 1.2em;
         font-weight: 800;
@@ -60,6 +61,7 @@ const Formulario = styled.form`
         
     }
     textarea {
+        
         width: 100%;
         height: 16em;
         padding: 0.75em 1.250em;
@@ -71,8 +73,10 @@ const Formulario = styled.form`
         border-radius: 10px;
 
         box-shadow: 3px 3px 10px -2px rgba(116, 115, 115, 0.83);
+        border-bottom: 0.3em solid #8d0d58;
     }
     input{
+        
         width: 100%;
         padding: 0.75em 1.250em;
         margin: 8px 0;
@@ -81,6 +85,7 @@ const Formulario = styled.form`
         border: none;
         border-radius: 10px;
         box-shadow: 3px 3px 10px -2px rgba(116, 115, 115, 0.83);
+        border-bottom: 0.3em solid #8d0d58;
     }
     button{
         background-color: #353535;
@@ -91,7 +96,7 @@ const Formulario = styled.form`
         width: 4em;
         border-radius: 10px;
         border: none;
-        box-shadow: 3px 3px #b9b8b8;
+        box-shadow: 3px 3px #4e4e4e;;
     :hover{
         background-color:#868686;
     }
