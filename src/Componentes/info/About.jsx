@@ -8,13 +8,13 @@ const About = () => {
 
 
     return (
-        <div>
-            <div>
+        <BigContenedor>
+            <Descripcion>
                 <h2>Que es MySlice?</h2>
-                <h3>MySlice es una app creada en 2023 por <a href='/contact'>Pedro y Andreas</a> para los amantes del orden, con la que simplificar gastos de la vida diaria  </h3>
-                <h4>Quieres saber si esta app es para ti? Haz el test y obtendras el resultado</h4>
-                <Test></Test>
-            </div>
+                <p>MySlice es una app creada en 2023 por <a href='/contact'>Pedro y Andreas</a> para los amantes del orden, con la que simplificar gastos de la vida diaria  </p>
+            </Descripcion>
+            <div className='info'>
+          
             <Contenedor>
                 <div>
                     <h3>Con My Slice puedes . . .</h3>
@@ -32,13 +32,75 @@ const About = () => {
                 </Escribiendo>
 
             </Contenedor >
-        </div>
+            <div className='test'>
+                <h4>Quieres saber si esta app es para ti?</h4>
+                <p>Haz el test y obtendras el resultado</p>
+                <Test></Test>
+            </div>
+
+            </div>
+        </BigContenedor>
     )
 }
 
 
 
 export default About;
+
+
+const Descripcion = styled.div`
+   
+   
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+        h2{ 
+            margin: 0;
+            font-size: 3em;
+            text-align: center;
+        }
+    p{
+        font-size: 1.5em;
+        font-weight: 400;
+        margin: 0;
+        text-align: center;
+        width: 50%;
+        a{
+            color: #AF126E ;
+        }
+    }
+
+`
+
+const BigContenedor = styled.div`
+   
+        display: flex;
+        flex-direction: column;
+        .test{
+            h4{
+                font-size: 1.5em;
+                margin: 0;
+            }
+            p{
+                margin-top: 0;
+            }
+            margin-top: 1em;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+    .info{
+        display: flex;
+       flex-direction: column;
+        margin-top: 2em;
+        @media screen {
+            
+        }
+        
+    }
+
+`
+
 
 const Contenedor = styled.div`
     margin-top: 2%;

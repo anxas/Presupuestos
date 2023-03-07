@@ -83,7 +83,7 @@ function Navbar() {
           </HomeTitulo>)} */}
 
         </div>
-        <div className='links'>
+        <div className='links2'>
           <a href='/about'>About</a>
           <a href='/contact'>Contact</a>
           <button onClick={onLogout}>Logout</button>
@@ -101,12 +101,8 @@ function Navbar() {
 export default Navbar
 
 
-const HomeTitulo = styled.div`
-cursor: pointer;
-  img{
-    width: 60px;
-  }
-`
+
+
 const LogoTitulo = styled.div`
   display: flex;
   justify-content: flex-start;
@@ -137,9 +133,9 @@ const NavContainer = styled.nav`
     text-decoration: none;
     margin-right: 1rem;
   }
- 
-  .links{
-   button{
+ .links2{
+  
+    button{
     color: white;
     border-radius: 10px;
     border:  black 0.5px;
@@ -147,8 +143,12 @@ const NavContainer = styled.nav`
     background-color: #C30F79;
     :hover{
       background-color: #af126e;
+      }
     }
-   }
+
+ }
+  .links{
+   
     position: absolute;
     top: -200px;
     left: 0%;
@@ -238,3 +238,12 @@ const BgDiv = styled.div`
   }
 `
 
+const HomeTitulo = styled.div`
+cursor: pointer;
+  img{
+    width: 60px;
+  }
+  @media(max-width: 768px){
+    position: absolute;
+    margin-top: -32em;
+  }`

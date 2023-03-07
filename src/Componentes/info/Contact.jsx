@@ -109,7 +109,7 @@ figure{
         color: white;
         text-align: center;
         font-size: 1.5em;
-        margin: 5%;
+        margin: 2%;
     }
     p{
         color: white ;

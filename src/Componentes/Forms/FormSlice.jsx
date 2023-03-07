@@ -2,15 +2,16 @@ import axios from "axios";
 import { useForm } from "react-hook-form"
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
+import DataList from "./DataList";
 
 
 const FormSlice = () => {
 
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
     const { groupId } = useParams();
-
+   
 
     const creaGrupo = async (values) => {
         const res = await axios.post(`http://localhost:3000/users/groups/${groupId}/slices/add`, values)
@@ -18,8 +19,8 @@ const FormSlice = () => {
             console.log(values)
 
         } else {
-            // window.location.href = '/grupos'
-            // navigate('/grupos')
+            window.location.href =
+                navigate(`/grupos/${groupId}`)
             console.log(values)
         }
     }
@@ -29,9 +30,32 @@ const FormSlice = () => {
 
     return (
         <Formulario onSubmit={handleSubmit(creaGrupo)}>
-            <input type="text" placeholder="Gasto" {...register('description')}/>
-            <input type="text" placeholder="Precio" {...register('amount')}/>
+            <input type="text" placeholder="Concepto del gasto" {...register
+                ('description', {
+                    required: true
+                })} />
+
+            <div>
+                <p>{(errors.description?.type === 'required') &&
+                    "Este campo es obligatorio"
+                }</p>
+            </div>
+            <input type="text" placeholder="Precio" {...register('amount', {
+                required: true,
+                pattern: /^[\.0-9]*$/
+            })} />
+            <div>
+                <p> {(errors.amount?.type === 'required') &&
+                    "Este campo es obligatorio"
+                }
+                    {(errors.amount?.type === 'pattern') &&
+                        "Debes introducir numeros (ej. 21.22)"
+                    }
+                </p>
+
+            </div>
             
+            <DataList />
             <button type="submit">Agregar</button>
         </Formulario>
     )

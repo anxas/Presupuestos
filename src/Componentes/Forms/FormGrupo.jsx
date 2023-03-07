@@ -2,6 +2,7 @@ import axios from "axios";
 import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import DataListGrupos from "./DataListGrupos";
 
 
 const FormGrupo = () => {
@@ -30,7 +31,9 @@ const FormGrupo = () => {
         <Formulario onSubmit={handleSubmit(creaGrupo)}>
             <input type="text" placeholder="Nuevo Grupo" {...register('groupTitle')}/>
             <input type="text" placeholder="Concepto" {...register('groupDescription')}/>
+            <DataListGrupos/> 
             <button type="submit">Agregar</button>
+            
         </Formulario>
     )
 }

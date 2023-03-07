@@ -36,7 +36,23 @@ export default Test
 const Checks = styled.div`
 display: flex;
 flex-direction: column;
+font-size: 1.5em;
+background-color: #6fdd6f;
+width: fit-content;
+padding: 1em;
+border-radius: 10px;
 
+input{
+    width: 1.5em;
+    height: 1.5em;
+}
+
+label{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    align-content: center;
+}
 
 `
 

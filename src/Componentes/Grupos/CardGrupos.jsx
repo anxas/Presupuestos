@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 const CardGrupos = ({ groupTitle, groupDescription, players }) => {
 
-    console.log(players[0].player)
 
     return (
         <GruposDiv>
@@ -12,10 +11,10 @@ const CardGrupos = ({ groupTitle, groupDescription, players }) => {
                     {groupTitle}
                 </h3>
                 {/* <p> {groupDescription}</p> */}
-                <Participantes>
+                <Participantes >
                     {players.map((players) => (
 
-                        <p> {players.player} </p>
+                        <p key={players.userId}> {players.player} </p>
                         //.toUpperCase()
                     ))}
                 </Participantes>

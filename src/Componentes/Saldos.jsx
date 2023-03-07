@@ -2,7 +2,7 @@
 import Grafica from "./Ui/Grafica";
 
 
-console.log('hola')
+
 const Saldos = () => {
     return (
     <div>
