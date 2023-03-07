@@ -1,23 +1,24 @@
 import axios from "axios";
 import { useForm } from "react-hook-form"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
 
-const FormGrupo = () => {
+const FormSlice = () => {
 
 
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
+    const { groupId } = useParams();
 
 
     const creaGrupo = async (values) => {
-        const res = await axios.post('http://localhost:3000/users/groups/new', values)
+        const res = await axios.post(`http://localhost:3000/users/groups/${groupId}/slices/add`, values)
         if (res.data.fatal) {
             console.log(values)
 
         } else {
-            window.location.href = '/grupos'
+            // window.location.href = '/grupos'
             // navigate('/grupos')
             console.log(values)
         }
@@ -28,14 +29,15 @@ const FormGrupo = () => {
 
     return (
         <Formulario onSubmit={handleSubmit(creaGrupo)}>
-            <input type="text" placeholder="Nuevo Grupo" {...register('groupTitle')}/>
-            <input type="text" placeholder="Concepto" {...register('groupDescription')}/>
+            <input type="text" placeholder="Gasto" {...register('description')}/>
+            <input type="text" placeholder="Precio" {...register('amount')}/>
+            
             <button type="submit">Agregar</button>
         </Formulario>
     )
 }
 
-export default FormGrupo
+export default FormSlice
 
 
 const Formulario = styled.form`
