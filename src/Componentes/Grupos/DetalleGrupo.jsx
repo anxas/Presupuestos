@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { useLocalStorage } from "../../Hooks";
 import Gastos from "../Ui/Gastos";
 import Grafica from "../Ui/Grafica";
+import PruebaGrafica from "../Ui/PruebaGrafica";
 import CardGrupos from "./CardGrupos";
 
 const DetalleGrupo = () => {
@@ -15,19 +16,20 @@ const DetalleGrupo = () => {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await 
-            axios.get(`http://localhost:3000/users/groups/${groupId}`)
+            const response = await
+                axios.get(`http://localhost:3000/users/groups/${groupId}`)
         }
         fetchData();
     }, [groupId]);
-    
+
 
     return (
-      
-         <Estadisticas>
-            <Grafica></Grafica>
+
+        <Estadisticas>
+            <PruebaGrafica />
+            {/* <Grafica></Grafica> */}
             <Gastos></Gastos>
-        </Estadisticas>
+        </Estadisticas >
     );
 }
 
