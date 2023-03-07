@@ -8,7 +8,8 @@ const LoginGuard = ({ children }) => {
     const isLogged = useLoggedContext();
 
     if (!isLogged) {
-        return <Navigate to={'/login'} replace />
+        return null
+        // <Navigate to={'/login'} replace />
     }
 
     return children;

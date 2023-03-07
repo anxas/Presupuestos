@@ -27,7 +27,7 @@ const Gastos = () => {
                 <div key={slices.sliceId}>
                     <h4> {slices.description} </h4>
                     <p>{slices.amount}€ </p>
-                    <p>{slices.users.name}</p>
+                    <p>{slices.users.reduce((prev,curr)=> prev += curr.name + ' ', "")}</p>
                 </div>
                 
             ))}

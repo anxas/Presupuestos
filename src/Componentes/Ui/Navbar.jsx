@@ -4,6 +4,7 @@ import Hamburguesa from './Hamburguesa'
 import { Link, useNavigate } from "react-router-dom";
 import { useSetLoggedContext } from '../Provider/LoggedProvider';
 import Swal from 'sweetalert2'
+import LoginGuard from '../guards/LoginGuard';
 
 
 function Navbar() {
@@ -12,16 +13,16 @@ function Navbar() {
 
   const navigate = useNavigate()
 
-  const onLogout = async() => {
-      
-      localStorage.removeItem('token');
-      console.log('te has deslogueado')
-      setIsLogged(false);
-      navigate('/login');
-      await Swal.fire({
-        title: 'Logout correcto',
-        text: 'Esperamos verte de nuevo pronto',
-        icon: 'success'
+  const onLogout = async () => {
+
+    localStorage.removeItem('token');
+    console.log('te has deslogueado')
+    setIsLogged(false);
+    navigate('/login');
+    await Swal.fire({
+      title: 'Logout correcto',
+      text: 'Esperamos verte de nuevo pronto',
+      icon: 'success'
     })
   }
 
@@ -43,24 +44,35 @@ function Navbar() {
 
           {(() => {
             if (clicked) {
-              return (<div>
-                <Link onClick={handleClick} to={'/grupos'}>
-                  Grupos
-                </Link>
-                {/* <Link onClick={handleClick} to={'/saldos'}>
-                  Saldos
-                </Link> */}
-                <Link onClick={handleClick} to={'/login'}>
-                  Login
-                </Link>
-                <Link onClick={handleClick} to={'/chat'}>
-                  Chat
-                </Link>
-              </div>);
+              return (
+                // <LoginGuard>
+                <div>
+
+                  <Link onClick={handleClick} to={'/login'}>
+                    Login
+                  </Link>
+                  <LoginGuard>
+                  <Link onClick={handleClick} to={'/grupos'}>
+                    Grupos
+                  </Link>
+
+                 
+                    <Link onClick={handleClick} to={'/chat'}>
+                      Chat
+                    </Link>
+                  </LoginGuard>
+
+                </div>
+                // </LoginGuard>
+              );
             } else {
-              return (<HomeTitulo>
-                {<img onClick={handleClick} src={require('../img/home.png')} />}
-              </HomeTitulo>);
+              return (
+                // <LoginGuard>
+                <HomeTitulo>
+                  {<img onClick={handleClick} src={require('../img/home.png')} />}
+                </HomeTitulo>
+                /* </LoginGuard> */
+              );
             }
           })()}
           {/* {(clicked) ? (

@@ -15,6 +15,17 @@ const DataList = () => {
 
     const { groupId } = useParams();
 
+// const [checkedValues, setValues] = useState();
+
+//     function handleChange(event) {
+//         const { value, checked } = event.target
+
+//         if(checked){
+//             setValue(value)
+//         }
+//     }
+//onChange={handleChange}
+//     console.log(checkedValues)
 
     useEffect(() => {
         axios.get(`http://localhost:3000/users/groups/${groupId}/users`)
@@ -27,11 +38,20 @@ const DataList = () => {
     //como seleccionar usuarios de la app 
 
     const data = participantes
-    console.log(participantes)
+
 
     return (
         <div >
-            <input list="data"  {...register('users', {
+            <p>Participantes</p>
+            {data.map(persona => (
+                <label key={persona.userId}>
+                    <input type="checkbox" value={persona.userId}  {...register("users")} />
+                    <span>{persona.player}</span>
+                </label>
+            ))}
+
+
+            {/* <input list="data"  {...register('users', {
                 required: true,
             })} />
             <datalist id="data">
@@ -39,7 +59,7 @@ const DataList = () => {
 
                     <option key={persona.userId}>{persona.player}</option>
                 ))}
-            </datalist>
+            </datalist> */}
         </div>
     )
 }

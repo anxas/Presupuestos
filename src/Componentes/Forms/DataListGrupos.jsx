@@ -35,10 +35,11 @@ const DataListGrupos = () => {
                 required: true,
             })} />
             <datalist id="data">
-                [{data.map(persona => (
-                    console.log(persona)
-                    // <option key={persona.userEmail}>{persona.userEmail}</option>
-                ))}] 
+                
+                {data.map(persona => (
+                    <option key={persona.userEmail}>{persona.userEmail}</option>
+                    
+                ))}
             </datalist>
         </div>
     )
