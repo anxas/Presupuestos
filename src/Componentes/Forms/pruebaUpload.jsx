@@ -2,8 +2,9 @@ const Upload = () => {
 
 
     return (
-        <form action="/profile" method="post" enctype="multipart/form-data">
+        <form action="/users/uploads/images" method="post" enctype="multipart/form-data">
             <input type="file" name="avatar" />
+            <button type="submit">Upload</button>
         </form>
     )
 }

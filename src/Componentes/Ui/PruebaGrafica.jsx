@@ -40,18 +40,18 @@ const PruebaGrafica = () => {
 
     return (
         <DivGeneral>
-                <h3>Gráficas</h3>
-            
-        <Graficas>
-            
-            {/* <GridContainer> */}
-            {dataGroups.map(user => (
-                < div >
-                    <Elementografica dataUser={user} totalDeuda={totalDeuda} />
-                </div >
-            ))}
-            {/* </GridContainer> */}
-        </Graficas>
+            <h3>Gráficas</h3>
+
+            <Graficas>
+
+                {/* <GridContainer> */}
+                {dataGroups.map(user => (
+                    < canvasChart >
+                        <Elementografica dataUser={user} totalDeuda={totalDeuda} />
+                    </canvasChart >
+                ))}
+                {/* </GridContainer> */}
+            </Graficas>
         </DivGeneral>
     )
 }
@@ -83,3 +83,8 @@ const DivGeneral = styled.div`
       
     }
 `
+
+const canvasChart = styled.canvas`
+width: 99%;
+overflow: auto;
+  position: relative;`
