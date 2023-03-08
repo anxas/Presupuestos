@@ -6,6 +6,7 @@ import { useLocalStorage } from "../../Hooks";
 import FormSlice from "../Forms/FormSlice";
 import Gastos from "../Ui/Gastos";
 import Grafica from "../Ui/Grafica";
+import PruebaGrafica from "../Ui/PruebaGrafica";
 import CardGrupos from "./CardGrupos";
 
 const DetalleGrupo = () => {
@@ -24,14 +25,12 @@ const DetalleGrupo = () => {
 
 
     return (
-        <div>
-            <Estadisticas>
-                <Grafica></Grafica>
-                <Gastos></Gastos>
-            </Estadisticas>
-            <FormSlice></FormSlice>
-            
-        </div>
+
+        <Estadisticas>
+            <PruebaGrafica />
+            {/* <Grafica></Grafica> */}
+            <Gastos></Gastos>
+        </Estadisticas >
     );
 }
 
