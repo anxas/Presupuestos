@@ -67,7 +67,7 @@ export default FormSlice
 const Formulario = styled.form`
 display: flex;
 flex-direction: column;
-margin: 2em 4em ;
+margin: 1em;
       input{
         margin: 1%;
         padding: 0.625rem;

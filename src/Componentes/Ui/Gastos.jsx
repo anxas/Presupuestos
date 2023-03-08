@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from 'styled-components'
+import FormSlice from "../Forms/FormSlice";
 
 const Gastos = () => {
 
@@ -21,6 +22,7 @@ const Gastos = () => {
 
     return (
         <DivGeneral>
+            <div>
             <h3>Gastos</h3>
             {slice.map(slices => (
 
@@ -33,14 +35,21 @@ const Gastos = () => {
                 </Deudas>
 
             ))}
+           </div>
+           <FormSlice/>
         </DivGeneral>
+
     )
 }
 export default Gastos;
 
 
 const DivGeneral = styled.div`
-    width: 50%;
+    width: 30%;
+    @media(max-width: 768px){
+    
+      width: 100%;
+}
 `
 
 const Deudas = styled.div`
@@ -53,7 +62,6 @@ const Deudas = styled.div`
     margin: 1em;
     padding: 0.5em;
     border-radius: 10px;
-    width: 100%;
     
 div{
     display: flex;

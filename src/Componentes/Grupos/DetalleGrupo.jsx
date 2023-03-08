@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { useLocalStorage } from "../../Hooks";
-import FormSlice from "../Forms/FormSlice";
+
 import Gastos from "../Ui/Gastos";
 import Grafica from "../Ui/Grafica";
 import PruebaGrafica from "../Ui/PruebaGrafica";
@@ -25,22 +25,27 @@ const DetalleGrupo = () => {
 
 
     return (
-
-        <Estadisticas>
-            <PruebaGrafica />
-            {/* <Grafica></Grafica> */}
-            <Gastos></Gastos>
-        </Estadisticas >
+        <div>
+            <Estadisticas>
+                <PruebaGrafica />
+                {/* <Grafica></Grafica> */}
+                <Gastos></Gastos>
+            </Estadisticas >
+            
+        </div>
     );
 }
 
 export default DetalleGrupo;
 
 const Estadisticas = styled.div`
- background: #f8c8c0;
   height: 100%;
   padding: 10px;
   display: flex;
   flex-wrap:wrap; 
  justify-content: space-around;
+ @media(max-width: 768px){
+    flex-direction: column-reverse;
+      
+}
 `

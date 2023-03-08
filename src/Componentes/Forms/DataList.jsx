@@ -45,7 +45,7 @@ const DataList = () => {
     const data = participantes
 
     return (
-        <div >
+        <DivGeneral>
 
             <Select
                 isMulti
@@ -70,8 +70,17 @@ const DataList = () => {
                     <option key={persona.userId}>{persona.player}</option>
                 ))}
             </datalist> */}
-        </div>
+        </DivGeneral>
     )
 }
 
 export default DataList
+
+
+const DivGeneral = styled.div`
+  margin: 1%;
+  margin-bottom: 20px;
+    border-radius: 4px;
+   border: 1px solid  #c85c9b;
+
+`

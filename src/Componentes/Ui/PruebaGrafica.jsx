@@ -39,10 +39,11 @@ const PruebaGrafica = () => {
     console.log(dataGroups)
 
     return (
-        <div>
-            <div>
+        <DivGeneral>
                 <h3>Gráficas</h3>
-            </div>
+            
+        <Graficas>
+            
             {/* <GridContainer> */}
             {dataGroups.map(user => (
                 < div >
@@ -50,8 +51,35 @@ const PruebaGrafica = () => {
                 </div >
             ))}
             {/* </GridContainer> */}
-        </div>
+        </Graficas>
+        </DivGeneral>
     )
 }
 
 export default PruebaGrafica;
+
+const Graficas = styled.div`
+
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-template-rows: 50% 50%;
+  column-gap: 10px;
+  row-gap: 15px;
+  justify-items: stretch;
+  width: 100%;
+  height: auto;
+  @media(max-width: 768px){
+    grid-template-columns: 50% 50%;
+      
+    }
+
+`
+
+const DivGeneral = styled.div`
+    width: 68%;
+    height: auto;
+    @media(max-width: 768px){
+      width: 100%;
+      
+    }
+`

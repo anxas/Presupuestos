@@ -11,8 +11,9 @@ import About from './Componentes/info/About';
 import Contact from './Componentes/info/Contact';
 import InicioSesion from './Componentes/InicioSesion';
 import Login from './Componentes/InicioSesion';
+import Perfil from './Componentes/Perfil';
 import LoggedProvider from './Componentes/Provider/LoggedProvider';
-import Saldos from './Componentes/Saldos';
+
 import Navbar from './Componentes/Ui/Navbar';
 
 
@@ -29,7 +30,7 @@ function App() {
                </LoginGuard>
                 } />
             <Route path='grupo/:groupId' element={<DetalleGrupo/>}></Route>
-            <Route path='saldos' element={<Saldos />} />
+            <Route path='perfil' element={<Perfil/>} />
             <Route path='login' element={<InicioSesion />} />
             <Route path='chat' element={<Chat />} />
             <Route path='About' element={<About />} />

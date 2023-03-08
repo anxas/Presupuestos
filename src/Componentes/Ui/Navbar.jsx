@@ -56,6 +56,9 @@ function Navbar() {
                     Grupos
                   </Link>
 
+                  <Link onClick={handleClick} to={'/perfil'}>
+                      Perfil
+                    </Link>
                  
                     <Link onClick={handleClick} to={'/chat'}>
                       Chat
@@ -196,7 +199,7 @@ const NavContainer = styled.nav`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-top: -0.5em;
+  margin-top: -1.5em;
   a{
     font-size: 2.5em;
   
