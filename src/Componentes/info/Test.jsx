@@ -1,6 +1,17 @@
+import { useState } from "react"
 import styled from "styled-components"
 
 const Test = () => {
+
+
+    const [first, setFirst] = useState(true);
+    const [second, setSecond] = useState(true);
+
+    const handleChange = (event) => {
+        console.log(event)
+    }
+
+
     return (
         <Checks>
             <label>
@@ -8,11 +19,11 @@ const Test = () => {
                 Se te olvida hacer Bizum
             </label>
             <label>
-                <input type="checkbox" />
-                Siempre pagas tu 
+                <input type="checkbox" onChange={() => handleChange("Hola")} />
+                Siempre pagas tu
             </label>
             <label>
-                <input type="checkbox" />
+                <input type="checkbox" onChange={() => handleChange("second")} />
                 Tus amigos se hacen los despistados al pagar
             </label>
             <label>
@@ -21,12 +32,14 @@ const Test = () => {
             </label>
             <label>
                 <input type="checkbox" />
-               Llevas las cuentas al dia
+                Llevas las cuentas al dia
             </label>
             <label>
                 <input type="checkbox" />
-               No te sobra el dinero
+                No te sobra el dinero
             </label>
+
+            <p> {}</p>
         </Checks>
 
     )
@@ -37,10 +50,11 @@ const Checks = styled.div`
 display: flex;
 flex-direction: column;
 font-size: 1.5em;
-background-color: #6fdd6f;
+background-color: #B7D6B7;
 width: fit-content;
 padding: 1em;
 border-radius: 10px;
+border: 2px solid #839983;
 
 input{
     width: 1.5em;

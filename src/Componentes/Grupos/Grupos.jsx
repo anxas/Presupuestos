@@ -43,7 +43,8 @@ justify-content: center;
 flex-wrap: wrap;
 align-content: center;
 
-a{
+a{ display: flex;
+
         width: 90%;
     }
 

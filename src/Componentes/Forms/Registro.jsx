@@ -3,11 +3,14 @@ import { useForm } from "react-hook-form";
 // import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from 'sweetalert2'
+import { useNavigate } from 'react-router-dom';
 
 
 
 
 const Registro = () => {
+
+    const navigate = useNavigate();
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -27,7 +30,8 @@ const Registro = () => {
                 text: 'Te has registrado correctamente',
                 icon: 'success'
             })
-            values = {}
+            navigate('/')
+           
         }
     }
 

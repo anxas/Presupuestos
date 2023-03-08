@@ -8,7 +8,7 @@ const Contact = () => {
             <ColumnaPerfiles>
                 <CardPerfil>
                     <figure>
-                        <a href="https://www.instagram.com/_anft_/" target={"_blank"}> {<img src={require('../img/image00084.jpg')} />}</a>
+                        <a href="https://www.instagram.com/_anft_/" target={"_blank"}> {<img src={require('../img/andreas.PNG')} />}</a>
                     </figure>
                     <h4>Andreas Freixas</h4>
                     <p>Frontend Developer</p>
@@ -19,7 +19,7 @@ const Contact = () => {
                 </CardPerfil>
                 <CardPerfil>
                     <figure>
-                        <a href="#" target={"_blank"}> {<img src={require('../img/title-1646064462.jpg')} />}</a>
+                        <a href="#" target={"_blank"}> {<img src={require('../img/pedro.jpeg')} />}</a>
                     </figure>
                     <h4>Pedro Ortega</h4>
                     <p>BackEnd Developer</p>
@@ -127,14 +127,9 @@ figure{
         border-radius: 50%;
         img{
             display: flex;
-            position:absolute;
-            width: 18.750em;
-            height: 22.500em;
-            left: -100%;
-            right: -80%;
-            top: -100%;
-            bottom: -80%;
-            margin: auto;
+            width: 12.625em; 
+            height: 12.625em; 
+           
         }
     }
 `

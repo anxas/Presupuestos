@@ -2,7 +2,8 @@ import axios from "axios";
 import { useForm } from "react-hook-form"
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
-import DataList from "./DataList";
+import DataListPagador from "./DataListPagador";
+import DataListParticipantes from "./DataListParticipantes";
 
 
 const FormSlice = () => {
@@ -19,7 +20,7 @@ const FormSlice = () => {
             console.log(values)
 
         } else {
-            window.location.href =
+            // window.location.href =
                 navigate(`/grupos/${groupId}`)
             console.log(values)
         }
@@ -30,6 +31,11 @@ const FormSlice = () => {
 
     return (
         <Formulario onSubmit={handleSubmit(creaGrupo)}>
+
+               <DataListPagador {...register('userId')}/>  
+            
+            <DataListParticipantes   {...register('usersDebtors')}/>
+
             <input type="text" placeholder="Concepto del gasto" {...register
                 ('description', {
                     required: true
@@ -40,7 +46,7 @@ const FormSlice = () => {
                     "Este campo es obligatorio"
                 }</p>
             </div>
-            <input type="text" placeholder="Precio" {...register('amount', {
+            <input type="number" placeholder="Precio (ej. 13.40)" step=".01" {...register('amount', {
                 required: true,
                 pattern: /^[\.0-9]*$/
             })} />
@@ -55,7 +61,8 @@ const FormSlice = () => {
 
             </div>
             
-            <DataList />
+         
+                    
             <button type="submit">Agregar</button>
         </Formulario>
     )
@@ -95,5 +102,7 @@ margin: 1em;
             
         }
 
-    }   
+    }  
+    
+    
 `

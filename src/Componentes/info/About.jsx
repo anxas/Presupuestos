@@ -62,10 +62,11 @@ const Descripcion = styled.div`
     p{
         font-size: 1.5em;
         font-weight: 400;
-        margin: 0;
+        
         text-align: center;
         width: 50%;
         a{
+            font-weight: 700;
             color: #AF126E ;
         }
     }
@@ -73,7 +74,7 @@ const Descripcion = styled.div`
 `
 
 const BigContenedor = styled.div`
-   
+ 
         display: flex;
         flex-direction: column;
         .test{
@@ -103,9 +104,8 @@ const BigContenedor = styled.div`
 
 
 const Contenedor = styled.div`
-    margin-top: 2%;
-    padding: 5em;
-    padding-top: 1em;
+    padding: 1em;
+    
     background: rgb(0,0,0);
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     background: #535353;
@@ -113,8 +113,9 @@ const Contenedor = styled.div`
     h3{ text-align: center;
         color: white;
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        font-size: 3em;
+        font-size: 2.5em;
         font-weight: 50;
+        margin-top: 0;
     }
 `
 
@@ -124,6 +125,6 @@ const Escribiendo = styled.div`
     justify-content: center;
     span{z-index: -1;
         color: white;
-        font-size: 3em;
+        font-size: 2em;
     }
 `

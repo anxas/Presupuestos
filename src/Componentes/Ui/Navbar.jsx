@@ -16,24 +16,29 @@ function Navbar() {
   const onLogout = async () => {
 
     localStorage.removeItem('token');
-    console.log('te has deslogueado')
+    
     setIsLogged(false);
     navigate('/login');
-    await Swal.fire({
-      title: 'Logout correcto',
-      text: 'Esperamos verte de nuevo pronto',
-      icon: 'success'
-    })
+    if(setIsLogged){
+
+    }else{
+      await Swal.fire({
+        title: 'Logout correcto',
+        text: 'Esperamos verte de nuevo pronto',
+        icon: 'success'
+      })
+    }
+    
   }
 
-  const [clicked, setClicked] = useState(false)
+  const [clicked, setClicked] = useState()
   const handleClick = () => {
 
     setClicked(!clicked)
   }
   return (
     <>
-      <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
+      <BgDiv  className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
       <NavContainer>
         <LogoTitulo>
           {<img src={require('../img/logo.png')} />}
@@ -45,36 +50,36 @@ function Navbar() {
           {(() => {
             if (clicked) {
               return (
-                // <LoginGuard>
+                <LoginGuard>
                 <div>
 
-                  <Link onClick={handleClick} to={'/login'}>
-                    Login
-                  </Link>
-                  <LoginGuard>
+                 
+                    <Link onClick={handleClick} to={'/chat'}>
+                      Chat
+                    </Link>
                   <Link onClick={handleClick} to={'/grupos'}>
                     Grupos
+                  </Link>
+                  <Link onClick={handleClick} to={'/login'}>
+                    Login
                   </Link>
 
                   <Link onClick={handleClick} to={'/perfil'}>
                       Perfil
                     </Link>
                  
-                    <Link onClick={handleClick} to={'/chat'}>
-                      Chat
-                    </Link>
-                  </LoginGuard>
+                    <a className='equis' onClick={handleClick}  href='#'>▲</a>
 
                 </div>
-                // </LoginGuard>
+                </LoginGuard>
               );
             } else {
               return (
-                // <LoginGuard>
+                <LoginGuard>
                 <HomeTitulo>
                   {<img onClick={handleClick} src={require('../img/home.png')} />}
                 </HomeTitulo>
-                /* </LoginGuard> */
+                </LoginGuard> 
               );
             }
           })()}
@@ -101,7 +106,8 @@ function Navbar() {
         <div className='links2'>
           <a href='/about'>About</a>
           <a href='/contact'>Contact</a>
-          <button onClick={onLogout}>Logout</button>
+          
+          <button onClick={onLogout}>Logout / Login</button>
         </div>
 
         <div className='burguer'>
@@ -155,9 +161,10 @@ const NavContainer = styled.nav`
     border-radius: 10px;
     border:  black 0.5px;
     padding: 5px;
-    background-color: #C30F79;
+    background-image: linear-gradient(to right, #af126e,  #18f0c1);
     :hover{
-      background-color: #af126e;
+      background-image: linear-gradient(to right,  #740c48,  #12977a);
+      
       }
     }
 
@@ -183,7 +190,8 @@ const NavContainer = styled.nav`
       a{
         font-size: 1rem;
         color: white;
-        display: inline;
+        display: flex;
+    justify-content: center;
         
       }
       
@@ -199,7 +207,7 @@ const NavContainer = styled.nav`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-top: -1.5em;
+  margin-top: -3.5em;
   a{
     font-size: 2.5em;
   
@@ -262,3 +270,5 @@ cursor: pointer;
     position: absolute;
     margin-top: -32em;
   }`
+
+ 

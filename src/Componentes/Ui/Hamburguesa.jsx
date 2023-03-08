@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import LoginGuard from '../guards/LoginGuard'
 
 function BurguerButton(props) {
   return (
+    <LoginGuard> 
     <Burguer>
       <div  onClick={props.handleClick} 
             className={`icon nav-icon-5 ${props.clicked ? 'open' : ''}`}
@@ -12,6 +14,7 @@ function BurguerButton(props) {
         <span></span>
       </div>
     </Burguer>
+     </LoginGuard> 
   )
 }
 

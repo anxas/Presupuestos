@@ -25,18 +25,18 @@ const PruebaGrafica = () => {
         fetchData();
     }, [groupId]);
 
-    console.log(dataGroups);
+    // console.log(dataGroups);
 
     let totalDeuda = 0;
 
     dataGroups.map(user => {
         if (user.debtAmount > 0) {
             totalDeuda = Number(user.debtAmount) + Number(totalDeuda)
-            console.log(totalDeuda)
+            // console.log(totalDeuda)
         }
     })
-    console.log(totalDeuda)
-    console.log(dataGroups)
+    // console.log(totalDeuda)
+    // console.log(dataGroups)
 
     return (
         <DivGeneral>

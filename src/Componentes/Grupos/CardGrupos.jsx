@@ -14,8 +14,8 @@ const CardGrupos = ({ groupTitle, groupDescription, players }) => {
                 <Participantes >
                     {players.map((players) => (
 
-                        <p key={players.userId}> {players.player} </p>
-                        //.toUpperCase()
+                        <p key={players.userId}> {players.player.charAt(0).toUpperCase() + players.player.slice(1) + ","} </p>
+                     
                     ))}
                 </Participantes>
                 {/* <p>{players.forEach(element => {
