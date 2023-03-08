@@ -1,5 +1,5 @@
 import { Pie } from "react-chartjs-2";
-import { Chart as ChartJS } from 'chart.js/auto'
+import { Chart as ChartJS, Legend } from 'chart.js'
 import { useState } from "react";
 
 const Elementografica = ({ dataUser, totalDeuda }) => {
@@ -21,26 +21,44 @@ const Elementografica = ({ dataUser, totalDeuda }) => {
     //ESTABLECEMOS LOS DATOS ORIGINALES. LABELS Y DATASETS
 
     const [userData, setUserData] = useState({
-
+        labels: [`A favor: ${saldo} €`, `Total: ${totalDeuda} €`, `Deuda: ${totalDeuda} €`, `Debe: ${deuda} €`],
         datasets: [{
-            label: "",
+            label: '',
             data: [saldo, totalSaldo, totalResto, deuda],
-            backgroundColor: ["green",
+            backgroundColor: ["#0fc359",
                 "rgb(255, 255, 255, 0)",
                 "rgb(255, 255, 255, 0)",
-                "red"],
+                "#C30F79"],
             borderColor: "black",
             borderWidth: 1,
             rotation: -90,
             circumference: 360,
         },
+
         ],
     });
+
+    //OPCIONES
+
+    ChartJS.register(Legend)
+
+    const options = {
+        responsive: true,
+        plugins: {
+            legend: {
+                display: false
+            },
+            title: {
+                display: true,
+                text: `${dataUser.player}`,
+            },
+        },
+    };
 
 
     return (
         <div>
-            <Pie data={userData} />
+            <Pie data={userData} options={options} />
         </div>
     )
 }
