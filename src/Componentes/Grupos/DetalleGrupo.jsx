@@ -43,7 +43,5 @@ const Estadisticas = styled.div`
   padding: 10px;
   display: flex;
   flex-wrap:wrap; 
-  div{
-    width: 50%;
-  }
+ justify-content: space-around;
 `

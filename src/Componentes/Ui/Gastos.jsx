@@ -18,27 +18,33 @@ const Gastos = () => {
     }, [groupId]);
 
 
-    
+
     return (
-        <Deudas>
+        <DivGeneral>
             <h3>Gastos</h3>
             {slice.map(slices => (
-                
-                <div key={slices.sliceId}>
-                    <h4> {slices.description} </h4>
-                    <p>{slices.amount}€ </p>
-                    <p>{slices.users.reduce((prev,curr)=> prev += curr.name + ' ', "")}</p>
-                </div>
-                
+
+                <Deudas key={slices.sliceId}>
+                    <div>
+                        <h4> {slices.description.toUpperCase()} </h4>
+                        <p>{slices.users.reduce((prev, curr) => prev += '' + curr.name + ', ', "")}</p>
+                    </div>
+                    <h3>{slices.amount}€ </h3>
+                </Deudas>
+
             ))}
-        </Deudas>
+        </DivGeneral>
     )
 }
 export default Gastos;
 
+
+const DivGeneral = styled.div`
+    width: 50%;
+`
+
 const Deudas = styled.div`
 
-div{
     background-color: #535353;
     display: flex;
     flex-direction: row;
@@ -47,13 +53,30 @@ div{
     margin: 1em;
     padding: 0.5em;
     border-radius: 10px;
-
+    width: 100%;
+    
+div{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
     p{ color: white;
-        margin: 0;
+        margin: 12px 4px;
+        font-size: 12px;
+    
     }
-    h4{
+    h4{ 
         color: white;
         margin: 0rem;
+        margin: 0px 6px;
     }
-}
+
+    h3{ display:flex;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        color: white;
+        margin: 0px 0px;
+    }
 `

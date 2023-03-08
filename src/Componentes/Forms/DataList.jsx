@@ -4,7 +4,8 @@ import { useForm } from "react-hook-form";
 
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
-
+import React from 'react'
+import Select from 'react-select'
 
 const DataList = () => {
 
@@ -15,17 +16,17 @@ const DataList = () => {
 
     const { groupId } = useParams();
 
-// const [checkedValues, setValues] = useState();
+    // const [checkedValues, setValues] = useState();
 
-//     function handleChange(event) {
-//         const { value, checked } = event.target
+    //     function handleChange(event) {
+    //         const { value, checked } = event.target
 
-//         if(checked){
-//             setValue(value)
-//         }
-//     }
-//onChange={handleChange}
-//     console.log(checkedValues)
+    //         if(checked){
+    //             setValue(value)
+    //         }
+    //     }
+    //onChange={handleChange}
+    //     console.log(checkedValues)
 
     useEffect(() => {
         axios.get(`http://localhost:3000/users/groups/${groupId}/users`)
@@ -37,18 +38,27 @@ const DataList = () => {
 
     //como seleccionar usuarios de la app 
 
-    const data = participantes
+    const handleSelectChange = (event) => {
+        console.log(event)
+    }
 
+    const data = participantes
 
     return (
         <div >
-            <p>Participantes</p>
+
+            <Select
+                isMulti
+                options={data.map(user => ({ label: user.player, value: user.userId, usersDebtors: user.userId }))}
+                onChange={handleSelectChange}
+            />
+            {/* <p>Participantes</p>
             {data.map(persona => (
                 <label key={persona.userId}>
                     <input type="checkbox" value={persona.userId}  {...register("users")} />
                     <span>{persona.player}</span>
                 </label>
-            ))}
+            ))} */}
 
 
             {/* <input list="data"  {...register('users', {
