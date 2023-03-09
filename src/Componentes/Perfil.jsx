@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 // import { useParams } from "react-router-dom";
 
 import styled from "styled-components";
+import PruebaUpload from "./Forms/PruebaUpload";
 
 
 
@@ -28,16 +29,17 @@ const Perfil = () => {
     return (
         <CardPerfil>
             {usuario ?
-            <div>
-                <figure>
-                    {<img src={require('./img/user.jpg')} />}
-                </figure>
-                <p>👤{usuario.userName.charAt(0).toUpperCase() + usuario.userName.slice(1)} {usuario.userSurname.charAt(0).toUpperCase() + usuario.userSurname.slice(1)}</p>
-                <p>📧  {usuario.userEmail}</p>
-                <p>📞 {usuario.userPhone}</p>
+                <div>
+                    <figure>
+                        {<img src={require('./img/user.jpg')} />}
+                    </figure>
+                    <p>👤{usuario.userName.charAt(0).toUpperCase() + usuario.userName.slice(1)} {usuario.userSurname.charAt(0).toUpperCase() + usuario.userSurname.slice(1)}</p>
+                    <p>📧  {usuario.userEmail}</p>
+                    <p>📞 {usuario.userPhone}</p>
 
-            </div>
-            : <p>Cargando</p>}
+                </div>
+                : <p>Cargando</p>}
+            <PruebaUpload />
         </CardPerfil>
     )
 
