@@ -36,7 +36,8 @@ const DataListUsuarios = () => {
 
     const data = participantes
     return (
-        <div >
+        <Formulario>
+            <h2>Invita a tus amigos</h2>
             <form onSubmit={handleSubmit(agregaUser)}> 
 
                 <input list="data"  {...register('userId', {
@@ -53,8 +54,90 @@ const DataListUsuarios = () => {
                 </datalist>
                 <button type="submit">Agregar</button>
             </form>
-        </div>
+
+            <h3>No encuentras a tus amigos? 😱</h3>
+            <h4>Debes buscarlos por su correo, o quizas todavia no sean usuarios, invitalos!</h4>
+            <div>
+                <p>MySlice.com/Login</p>
+                <button>
+                🚀
+                </button>
+            </div>
+        </Formulario>
     )
 }
 
 export default DataListUsuarios
+
+const Formulario = styled.div`
+width: 90%;
+display: flex;
+align-items: center;
+flex-direction: column;
+background-color: #818181;
+padding: 20px;
+border-radius: 20px;
+h2{
+    font-weight: 900;
+    margin: 0;
+    color: white;
+}
+form{
+    margin: 12px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    input{
+        border-radius: 10px;
+        height: 2em;
+        width: 50%;
+    }
+    button{
+        background-color: #af166f;
+        color: white;
+ 
+        font-size: 1rem;
+        padding: 0.5rem;
+        border-radius: 10px;
+        border: none;
+        /* box-shadow: 3px 3px #b9b8b8; */
+        width: 6em;
+        :hover{
+            background-color: #881156;
+        }
+        :active{
+            transform: translateY(2px);
+           box-shadow: inset 2px 2px 4px #373636;
+            
+        }
+
+    }  
+}
+h3{ margin: 0;
+    margin-top:1.5em;
+
+    color: #dbdada;
+    
+}
+
+h4{
+    margin: 0;
+    color: #c7c4c4;
+  
+}
+div{
+    margin-top:1.5em;
+    display: flex;
+    justify-content: center;
+    p{margin: 0;
+        background-color: #c7c4c4;
+        padding: 5px;
+        cursor: pointer;
+    }
+    button{
+    background-color: #c7c4c4;
+    border: solid 2px #a8a8a8;
+    cursor: pointer;
+    }
+}
+`

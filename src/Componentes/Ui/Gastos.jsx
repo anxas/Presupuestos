@@ -74,7 +74,7 @@ const DivGeneral = styled.div`
 }
 
 .titulo{
-    /* display: flex;
+     /* display: flex;
    justify-content: center;
    font-size: 2em;
    font-weight: 800;
@@ -89,7 +89,7 @@ const DivGeneral = styled.div`
     background-clip: text;
     text-shadow: 0px 3px 3px rgba(255,255,255,0.5);
     margin-bottom: 2%;
-    margin-top:1.5%; */
+    margin-top:1.5%;  */
 }
 `
 

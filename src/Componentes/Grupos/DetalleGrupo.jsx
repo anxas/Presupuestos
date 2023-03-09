@@ -7,9 +7,9 @@ import { useLocalStorage } from "../../Hooks";
 import DataListUsuarios from "../Forms/DataListUsuarios";
 
 import Gastos from "../Ui/Gastos";
-import Grafica from "../Ui/Grafica";
+
 import PruebaGrafica from "../Ui/PruebaGrafica";
-import CardGrupos from "./CardGrupos";
+
 
 const DetalleGrupo = () => {
 
@@ -33,7 +33,7 @@ const DetalleGrupo = () => {
             <Estadisticas>
                 <PruebaGrafica />
 
-                <h2>Invita gente</h2>
+                
                 <DataListUsuarios {...register('userDebtors')} />
             </Estadisticas >
             <div className="gastos">

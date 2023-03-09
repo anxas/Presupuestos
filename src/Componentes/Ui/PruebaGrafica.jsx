@@ -44,7 +44,6 @@ const PruebaGrafica = () => {
 
     return (
         <DivGeneral>
-            <h3>Gráficas</h3>
 
             <Flexbox>
                 <div>
@@ -61,7 +60,7 @@ const PruebaGrafica = () => {
                     </div>
                 </div>
             </Flexbox>
-            <PruebaUpload />
+            {/* <PruebaUpload /> */}
         </DivGeneral>
     )
 }
