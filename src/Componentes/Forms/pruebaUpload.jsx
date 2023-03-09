@@ -9,7 +9,7 @@ const PruebaUpload = () => {
         setImage(event.target.files[0])
     };
 
-    const sendImage = (event) => {
+    const sendImage = async (event) => {
         let formData = new FormData();
 
         formData.append('avatar', image);
@@ -26,6 +26,9 @@ const PruebaUpload = () => {
         // }).then((res) => res.json()).catch((res) => res.json())
 
 
+        await axios.post("http://localhost:3000/users/uploads/uploads", image).then(() => {
+
+        }).catch((error) => { console.log(error) })
     }
 
     return (
@@ -36,4 +39,4 @@ const PruebaUpload = () => {
     )
 }
 
-export default PruebaUpload;
+export default PruebaUpload

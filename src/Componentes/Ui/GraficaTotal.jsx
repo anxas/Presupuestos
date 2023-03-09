@@ -1,9 +1,10 @@
 import { Doughnut, } from "react-chartjs-2";
-import { Chart as ChartJS, Legend, ArcElement } from 'chart.js'
+import { Chart as ChartJS, Legend, ArcElement, Tooltip } from 'chart.js'
 import { useEffect, useState } from "react";
 import Values from 'values.js'
 
-ChartJS.register(ArcElement)
+ChartJS.register(ArcElement);
+ChartJS.register(Tooltip)
 
 const GraficaTotal = ({ dataGroup }) => {
 
@@ -112,7 +113,7 @@ const GraficaTotal = ({ dataGroup }) => {
     const colorspaytratado = colorspay.map(color => `rgb(${color[0]}, ${color[1]}, ${color[2]})`)
 
     let colorlist = [colorspaytratado.concat(colorsdebttratado)]
-
+    console.log(labels)
 
     const Data = {
         labels: labels,
