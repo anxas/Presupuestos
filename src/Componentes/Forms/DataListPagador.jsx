@@ -7,12 +7,14 @@ import styled from "styled-components";
 import React from 'react'
 import Select from 'react-select'
 
-const DataListPagador = () => {
+const DataListPagador = (props) => {
 
 
     const { register, handleSubmit } = useForm();
     // const navigate = useNavigate();
     const [pagador, setPagador] = useState([])
+
+    
 
     const { groupId } = useParams();
 
@@ -27,8 +29,8 @@ const DataListPagador = () => {
 
     //como seleccionar usuarios de la app 
 
-    const handleSelectChange = (event) => {
-        console.log(event)
+    const handleSelectChange = (value, event) => {
+        props.setPagadorSeleccionado(value.value)
     }
 
     const data = pagador

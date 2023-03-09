@@ -1,5 +1,6 @@
 import axios from "axios";
-import { useForm } from "react-hook-form"
+import { useState } from "react";
+import { set, useForm } from "react-hook-form"
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import DataListPagador from "./DataListPagador";
@@ -12,16 +13,21 @@ const FormSlice = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
     const { groupId } = useParams();
+
+    const[pagadorSeleccionado, setPagadorSeleccionado] = useState()
+
+    const [deudores, setDeudores] = useState(new Set())
    
 
-    const creaGrupo = async (values) => {
+    const creaGrupo = async function (values){
+        values =  {...values, userId: pagadorSeleccionado, usersDebtors: deudores}
         const res = await axios.post(`http://localhost:3000/users/groups/${groupId}/slices/add`, values)
         if (res.data.fatal) {
             console.log(values)
 
         } else {
             // window.location.href =
-                navigate(`/grupos/${groupId}`)
+                navigate(`/grupo/${groupId}`)
             console.log(values)
         }
     }
@@ -32,9 +38,9 @@ const FormSlice = () => {
     return (
         <Formulario onSubmit={handleSubmit(creaGrupo)}>
 
-               <DataListPagador {...register('userId')}/>  
+            <DataListPagador setPagadorSeleccionado={setPagadorSeleccionado}/>  
             
-            <DataListParticipantes   {...register('usersDebtors')}/>
+            <DataListParticipantes   setDeudores={setDeudores}/>
 
             <input type="text" placeholder="Concepto del gasto" {...register
                 ('description', {

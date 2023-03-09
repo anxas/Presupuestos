@@ -7,14 +7,14 @@ import styled from "styled-components";
 import React from 'react'
 import Select from 'react-select'
 
-const DataListParticipantes = () => {
+const DataListParticipantes = (props) => {
 
 
     const { register, handleSubmit } = useForm();
     // const navigate = useNavigate();
     const [participantes, setParticipantes] = useState([])
 
-    const [participante, setParticipante] = useState([])
+
 
     const { groupId } = useParams();
 
@@ -30,15 +30,13 @@ const DataListParticipantes = () => {
     //como seleccionar usuarios de la app 
    
 
-    const handleSelectChange = (event) => {
-        event.forEach(item => {
-           
-            setParticipante(...participante, item.usersDebtors )
-            console.log(participante)
-          }, []);
-      
+    const handleSelectChange = (value, event) => {
+       
+        // console.log({event, value})
+        props.setDeudores(value.map(e => e.value))
+        console.log(props)
     }
-    console.log(participante)
+    
     const data = participantes
 
     return (

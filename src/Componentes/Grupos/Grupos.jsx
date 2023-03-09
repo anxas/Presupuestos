@@ -26,6 +26,7 @@ const Grupos = () => {
                 {arrGrupos.map(group => (
                     <Link key={group.groupId} to={`/grupo/${group.groupId}`}>
                         <CardGrupos {...group} />
+                        <button>❌</button>
                     </Link>
                 ))}
             </Cartas>
@@ -43,11 +44,23 @@ justify-content: center;
 flex-wrap: wrap;
 align-content: center;
 
-a{ display: flex;
+
+a{ button{
+        background-color: transparent;
+        padding: 10px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        :hover{
+            transform: scale(1.2);
+        }
+    
+    }
+    display: flex;
 
         width: 90%;
     }
 
-
+    
     
 `

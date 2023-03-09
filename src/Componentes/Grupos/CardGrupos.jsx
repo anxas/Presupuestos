@@ -7,20 +7,24 @@ const CardGrupos = ({ groupTitle, groupDescription, players }) => {
 
     return (
         <GruposDiv>
+            <div className="participantes">
                 <h3>
                     {groupTitle}
                 </h3>
-                {/* <p> {groupDescription}</p> */}
-                <Participantes >
+
+
+                <div>
                     {players.map((players) => (
 
                         <p key={players.userId}> {players.player.charAt(0).toUpperCase() + players.player.slice(1) + ","} </p>
-                     
+
                     ))}
-                </Participantes>
-                {/* <p>{players.forEach(element => {
-                    return(element.player)
-                })}</p> */}
+                </div>
+            </div>
+            
+
+
+
         </GruposDiv>
 
 
@@ -33,34 +37,46 @@ const TituloDiv = styled.div`
     
 `
 const GruposDiv = styled.div`
-    display: flex;
-    flex-direction: column;
-    background: #535353;
+  background: #535353;
     border-bottom: 0.3em solid #8d0d58;
-    /* background: linear-gradient(180deg, rgba(149,148,148,1) 0%, rgba(59,58,58,1) 100%, rgba(255,255,255,0) 100%); */
-    border-radius: 10px;
+    background-color: #535353;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1em;
     padding: 1em;
+    border-radius: 10px;
     width: 100%;
-    margin: 1em 0em;
+    height: 100%;
     :hover{
         background-color: #6b6b6b;
         border-bottom: 0.3em solid #ce1581;
 
     }
-    h3{
-        color: white;
-    }
-
-    p{
-        color: white;
-    }
     
-`
-
-const Participantes = styled.div`
+.participantes{
     display: flex;
+  flex-direction: column;
     
-    p{
-    font-size: 1em;
-    margin-right: 10px;}
+    div{
+        display: flex;
+        flex-direction: row;
+    }
+}
+    p{ color: white;
+        margin: 12px 0px;
+        font-size: 12px;
+    
+    }
+
+    h3{ display:flex;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        color: white;
+        margin: 12px 0px;
+    }
+   
 `
+

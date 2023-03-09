@@ -29,7 +29,7 @@ const Gastos = () => {
                 <Deudas key={slices.sliceId}>
                     <div>
                         <h4> {slices.description.toUpperCase()} </h4>
-                        <p>{slices.users.reduce((prev, curr) => prev += '' + curr.name + ', ', "")}</p>
+                        <p>{slices.users.map(user=> user.name).join(", ")}</p>
                     </div>
                     <h3>{slices.amount}€ </h3>
                 </Deudas>
