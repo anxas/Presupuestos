@@ -18,7 +18,7 @@ const FormGrupo = () => {
             console.log(values)
 
         } else {
-            window.location.href = '/grupos'
+            window.location.reload()
             
             console.log(values)
         }

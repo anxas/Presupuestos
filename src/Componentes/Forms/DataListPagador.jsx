@@ -8,7 +8,7 @@ import React from 'react'
 import Select from 'react-select'
 
 const DataListPagador = (props) => {
-
+   
 
     const { register, handleSubmit } = useForm();
     // const navigate = useNavigate();

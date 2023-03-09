@@ -26,7 +26,7 @@ const FormSlice = () => {
             console.log(values)
 
         } else {
-            // window.location.href =
+            window.location.reload()
                 navigate(`/grupo/${groupId}`)
             console.log(values)
         }
