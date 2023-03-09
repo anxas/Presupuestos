@@ -4,7 +4,7 @@ import { useParams } from 'react-router';
 import styled from 'styled-components';
 import { UserData } from '../../PruebaDataChart';
 import PruebaUpload from '../Forms/PruebaUpload';
-import Elementografica from './ElementoGrafica';
+
 import GraficaBarra from './GraficaBarra';
 import GraficaTotal from './GraficaTotal';
 
@@ -64,15 +64,6 @@ const PruebaGrafica = () => {
                 </div>
             </Flexbox>
             <PruebaUpload />
-            {/* <Graficas>
-                 <GridContainer>
-                {dataGroups.map(user => (
-                    < canvasChart >
-                        <Elementografica dataUser={user} totalDeuda={totalDeuda} />
-                        </canvasChart >
-                        ))}
-                    </GridContainer> 
-            </Graficas>*/}
         </DivGeneral>
     )
 }

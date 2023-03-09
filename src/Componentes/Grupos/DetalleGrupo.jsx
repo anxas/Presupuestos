@@ -27,11 +27,11 @@ const DetalleGrupo = () => {
     return (
         <div>
             <Estadisticas>
-                {/* <PruebaGrafica /> */}
+                <PruebaGrafica />
                 {/* <Grafica></Grafica> */}
                 <Gastos></Gastos>
             </Estadisticas >
-            
+
         </div>
     );
 }

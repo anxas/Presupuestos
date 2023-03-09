@@ -1,9 +1,13 @@
-import { Doughnut } from "react-chartjs-2";
-import { Chart as ChartJS, Legend } from 'chart.js'
+import { Doughnut, } from "react-chartjs-2";
+import { Chart as ChartJS, Legend, ArcElement } from 'chart.js'
 import { useEffect, useState } from "react";
 import Values from 'values.js'
 
+ChartJS.register(ArcElement)
+
 const GraficaTotal = ({ dataGroup }) => {
+
+
 
     const [debtors, setdebtors] = useState([]);
 
