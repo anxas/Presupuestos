@@ -1,90 +1,117 @@
-//IMPORTACIÓN DE LA DATA DE PRUEBA
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import styled from 'styled-components';
 import { UserData } from '../../PruebaDataChart';
+import PruebaUpload from '../Forms/PruebaUpload';
 import Elementografica from './ElementoGrafica';
+import GraficaBarra from './GraficaBarra';
+import GraficaTotal from './GraficaTotal';
 
-const GridContainer = styled.div`
-display: grid;
-grid-template-columns: 25% 25% 25% 25%;`
 
 const PruebaGrafica = () => {
 
     const { groupId } = useParams();
 
 
-    const [dataGroups, setdataGroups] = useState([]);
+    const [dataGroup, setdataGroup] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
             const res = await axios.get(`http://localhost:3000/users/groups/${groupId}/amounts`);
-            setdataGroups(res.data);
+            setdataGroup(res.data);
         }
         fetchData();
     }, [groupId]);
 
-    console.log(dataGroups);
+    // const [totalDeuda, settotalDeuda] = useState(0)
 
     let totalDeuda = 0;
 
-    dataGroups.map(user => {
+    // useEffect(() => {
+    //     dataGroup.map(user => {
+    //         if (user.debtAmount > 0) {
+    //             settotalDeuda(Number(user.debtAmount) + Number(totalDeuda))
+    //             console.log(totalDeuda)
+    //         }
+    //     })
+    // }, [dataGroup])
+
+    dataGroup.map(user => {
         if (user.debtAmount > 0) {
             totalDeuda = Number(user.debtAmount) + Number(totalDeuda)
-            console.log(totalDeuda)
         }
     })
-    console.log(totalDeuda)
-    console.log(dataGroups)
 
     return (
         <DivGeneral>
             <h3>Gráficas</h3>
 
-            <Graficas>
+            <Flexbox>
+                <div>
 
-                {/* <GridContainer> */}
+                </div>
+                <div>
+                    <GraficaTotal dataGroup={dataGroup} />
+                </div>
+                <div>
+                    <div >
+                        {dataGroup.map(user => (
+                            <GraficaBarra user={user} totalDeuda={totalDeuda} />
+                        ))}
+                    </div>
+                </div>
+            </Flexbox>
+            <PruebaUpload />
+            {/* <Graficas>
+                 <GridContainer>
                 {dataGroups.map(user => (
                     < canvasChart >
                         <Elementografica dataUser={user} totalDeuda={totalDeuda} />
-                    </canvasChart >
-                ))}
-                {/* </GridContainer> */}
-            </Graficas>
+                        </canvasChart >
+                        ))}
+                    </GridContainer> 
+            </Graficas>*/}
         </DivGeneral>
     )
 }
 
 export default PruebaGrafica;
 
+const Flexbox = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 10px;
+`
+
 const Graficas = styled.div`
 
-    display: grid;
-    grid-template-columns: 30% 30% 30%;
-    grid-template-rows: 50% 50%;
-  column-gap: 10px;
-  row-gap: 15px;
-  justify-items: stretch;
-  width: 100%;
-  height: auto;
-  @media(max-width: 768px){
-    grid-template-columns: 50% 50%;
-      
-    }
-
-`
+            display: grid;
+            grid-template-columns: 30% 30% 30%;
+            grid-template-rows: 50% 50%;
+            column-gap: 10px;
+            row-gap: 15px;
+            justify-items: stretch;
+            width: 100%;
+            height: auto;
+            @media(max-width: 768px){
+                grid-template-columns: 50% 50%;
+    }`
 
 const DivGeneral = styled.div`
-    width: 68%;
-    height: auto;
-    @media(max-width: 768px){
-      width: 100%;
+            width: 68%;
+            height: auto;
+            @media(max-width: 768px){
+                width: 100%;
       
     }
-`
+            `
+const GridContainer = styled.div`
+            display: grid;
+            grid-template-columns: 25% 25% 25% 25%;`
 
 const canvasChart = styled.canvas`
-width: 99%;
-overflow: auto;
-  position: relative;`
+            width: 99%;
+            overflow: auto;
+            position: relative;`
