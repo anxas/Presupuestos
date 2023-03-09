@@ -43,6 +43,7 @@ const DataListParticipantes = (props) => {
         <DivGeneral>
             <p>Participantes</p>
             <Select
+                placeholder="Elige los participantes"
                 isMulti
                 options={data.map(user => ({ label: user.player.charAt(0).toUpperCase() + user.player.slice(1), value: user.userId, usersDebtors: user.userId }))}
                 onChange={handleSelectChange}

@@ -54,9 +54,9 @@ function Navbar() {
                 <div>
 
                  
-                    <Link onClick={handleClick} to={'/chat'}>
+                    {/* <Link onClick={handleClick} to={'/chat'}>
                       Chat
-                    </Link>
+                    </Link> */}
                   <Link onClick={handleClick} to={'/grupos'}>
                     Grupos
                   </Link>
@@ -207,7 +207,7 @@ const NavContainer = styled.nav`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-top: -3.5em;
+  margin-top: -2.5em;
   a{
     font-size: 2.5em;
   

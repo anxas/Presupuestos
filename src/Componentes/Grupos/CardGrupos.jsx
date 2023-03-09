@@ -7,12 +7,16 @@ const CardGrupos = ({ groupTitle, groupDescription, players }) => {
 
     return (
         <GruposDiv>
+            <div className="descripciones">
                 <h3>
                     {groupTitle}
                 </h3>
-                <div>
-                    <p>{players.map(user=> user.player.charAt(0).toUpperCase() + user.player.slice(1)).join(", ")}</p>
-                </div>
+                <h4>{groupDescription}</h4>
+            </div>
+            <div>
+                <h4>Participantes:</h4>
+                <p>{players.map(user => user.player.charAt(0).toUpperCase() + user.player.slice(1)).join(", ")}</p>
+            </div>
         </GruposDiv>
     )
 }
@@ -30,7 +34,26 @@ const GruposDiv = styled.div`
     align-items: flex-start;
     padding: 1em;
     border-radius: 10px;
- 
+  
+ .descripciones{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    h4{
+       
+    color: #8a8888;
+    margin: 0px 12px;
+    font-style: italic;
+}
+ }
+ h4{
+    
+    color: #ffffff;
+    margin: 0px;
+    margin-top: 12px;
+    font-style: italic;
+
+}
 
     :hover{
         background-color: #6b6b6b;
@@ -50,6 +73,7 @@ const GruposDiv = styled.div`
         align-content: center;
         color: white;
         margin: 12px 0px;
+        font-size: 1.5em;
     }
    
 `

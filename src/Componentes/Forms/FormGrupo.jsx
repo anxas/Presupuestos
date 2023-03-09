@@ -31,7 +31,7 @@ const FormGrupo = () => {
         <Formulario onSubmit={handleSubmit(creaGrupo)}>
             <input type="text" placeholder="Nuevo Grupo" {...register('groupTitle')}/>
             <input type="text" placeholder="Concepto" {...register('groupDescription')}/>
-            <DataListUsuarios {...register('userDebtors')}/>
+            
             <button type="submit">Agregar</button>
             
         </Formulario>

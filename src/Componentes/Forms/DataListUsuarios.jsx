@@ -13,7 +13,16 @@ const DataListUsuarios = () => {
     // const navigate = useNavigate();
     const [participantes, setParticipantes] = useState([])
 
-    // const { groupId } = useParams();
+    // const [agregaUser, setAgregaUser] = useState();
+
+    // const { userId } = useParams()
+    const { groupId } = useParams();
+
+    const agregaUser = (values)=>{
+        axios.post(`http://localhost:3000/users/groups/${groupId}/addUser`, values)
+        .then( res => console.log(res.data))
+        .catch(err=>console.log(err))
+    }
 
 
     useEffect(() => {
@@ -24,22 +33,26 @@ const DataListUsuarios = () => {
 
     }, [])
 
-    // console.log([participantes])
-    //como seleccionar usuarios de la app 
 
     const data = participantes
     return (
         <div >
-            <input list="data"  {...register('users', {
-                required: true,
-            })} />
-            <datalist id="data">
-                
-                {data.map(persona => (
-                    <option key={persona.userEmail}>{persona.userEmail}</option>
-                    
-                ))}
-            </datalist>
+            <form onSubmit={handleSubmit(agregaUser)}> 
+
+                <input list="data"  {...register('userId', {
+                    required: true,
+                })} />
+
+                <datalist id="data">
+                    {/* key={persona.userEmail}  */}
+                    {data.map(persona => (
+                        <option value={persona.userId} >{persona.userEmail}</option>
+
+                    ))}
+
+                </datalist>
+                <button type="submit">Agregar</button>
+            </form>
         </div>
     )
 }

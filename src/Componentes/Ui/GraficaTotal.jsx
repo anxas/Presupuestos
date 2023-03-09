@@ -48,7 +48,7 @@ const GraficaTotal = ({ dataGroup }) => {
 
     let labels = payersnames.concat(debtorsnames);
 
-    console.log(labels)
+   
 
     let datalist = payersamount.concat(debtorsamount);
 
