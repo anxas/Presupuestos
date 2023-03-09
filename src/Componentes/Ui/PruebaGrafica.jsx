@@ -2,7 +2,6 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import styled from 'styled-components';
-import PruebaUpload from '../Forms/PruebaUpload';
 import GraficaBarra from './GraficaBarra';
 import GraficaTotal from './GraficaTotal';
 
@@ -61,6 +60,7 @@ const PruebaGrafica = () => {
                 </div>
             </Flexbox>
             {/* <PruebaUpload /> */}
+
         </DivGeneral>
     )
 }
