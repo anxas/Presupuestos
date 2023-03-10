@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useLocalStorage } from "../../Hooks";
 
@@ -11,26 +12,27 @@ const PruebaUpload = () => {
         setImage(event.target.files[0])
     };
 
-    const sendImage = (event) => {
-        let formData = new FormData();
+    const sendImage = async (event) => {
+        try {
+            let formData = new FormData();
+            formData.append('avatar', image);
 
-        formData.append('avatar', image);
+            const response = await axios({
+                url: 'http://localhost:3000/users/uploads/uploads',
+                method: 'POST',
+                data: formData,
+            })
 
-        fetch('http://localhost:3000/users/uploads/uploads', {
-            mode: 'cors',
-            method: "post",
-            body: formData,
-        })
-            .then((res) => res.text())
-            .then((resBody) => {
-                console.log(resBody);
-            });
+        } catch (error) {
+            console.log(error)
+        }
     };
 
     return (
         <div>
+            <h3 style={{ color: "white" }}>Sube tu avatar personalizado</h3>
             <input type="file" onChange={fileOnChange} />
-            <button onClick={sendImage}>Upload</button>
+            <button style={{ marginTop: "0.5rem", width: '6rem', backgroundColor: '#0fc359', border: 'none', padding: '0.2rem', borderRadius: '10px' }} onClick={sendImage}>Upload</button>
         </div>
     )
 

@@ -16,6 +16,10 @@ const Grupos = () => {
     useEffect(() => {
         const fetchData = async () => {
             const res = await axios.get('http://localhost:3000/users/groups/');
+            if (!res.data) {
+                setArrGrupos([])
+            }
+            console.log(res.data)
             setArrGrupos(res.data);
 
         }
@@ -23,39 +27,39 @@ const Grupos = () => {
     }, []);
 
     const remove = ((group) => {
-        
+
         if (window.confirm("Quieres eliminar el grupo?")) {
             console.log(group)
             axios.delete(`http://localhost:3000/users/groups/${group}/delete`).then(() => {
-                 window.location.reload()
+                window.location.reload()
             }).catch((err) => {
                 console.log(err)
             })
         }
     }
     )
-    
 
-        //   await Swal.fire({
-        //     title: 'Logout correcto',
-        //     text: 'Esperamos verte de nuevo pronto',
-        //     icon: 'success'
-        //   })
 
-        // navigate('/grupos');
-    
-    
+    //   await Swal.fire({
+    //     title: 'Logout correcto',
+    //     text: 'Esperamos verte de nuevo pronto',
+    //     icon: 'success'
+    //   })
+
+    // navigate('/grupos');
+
+
     return (
         <GeneralDiv>
             <Cartas>
-                {arrGrupos.map(group => (
+                {arrGrupos.length != 0 ? arrGrupos.map(group => (
                     <div key={group.groupId} className="divCard">
-                        <Link  key={group.groupId} to={`/grupo/${group.groupId}`}>
+                        <Link key={group.groupId} to={`/grupo/${group.groupId}`}>
                             <CardGrupos {...group} />
                         </Link>
                         <button onClick={() => { remove(group.groupId) }}>❌</button>
                     </div>
-                ))}
+                )) : <h1>No hay grupos</h1>}
             </Cartas>
             <FormGrupo></FormGrupo>
 

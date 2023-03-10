@@ -11,8 +11,9 @@ import PruebaUpload from "./Forms/PruebaUpload";
 
 const Perfil = () => {
 
-    const [usuario, setUsuario] = useState(0)
 
+
+    const [usuario, setUsuario] = useState(0)
 
 
     useEffect(() => {
@@ -25,13 +26,32 @@ const Perfil = () => {
     }, [])
 
 
+    const [image, setImage] = useState(null)
+
+    useEffect(() => {
+        async function fetchdata() {
+            try {
+                const response = await axios.get(`http://localhost:3000/users/home/avatar`)
+                if (response) {
+                    setImage(response.data.imagePath)
+                }
+
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchdata();
+
+    }, [])
+
 
     return (
         <CardPerfil>
             {usuario ?
                 <div>
                     <figure>
-                        {<img src={require('./img/user.jpg')} />}
+                        {image ? <img src={`http://localhost:3000/uploads/${image}`} /> : <img src={require('./img/user.jpg')} />}
+                        {/* {<img src={require('./img/user.jpg')} />} */}
                     </figure>
                     <p>👤{usuario.userName.charAt(0).toUpperCase() + usuario.userName.slice(1)} {usuario.userSurname.charAt(0).toUpperCase() + usuario.userSurname.slice(1)}</p>
                     <p>📧  {usuario.userEmail}</p>
