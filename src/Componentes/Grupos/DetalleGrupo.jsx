@@ -34,13 +34,13 @@ const DetalleGrupo = () => {
             <Estadisticas>
                 <PruebaGrafica />
 
-                
+
                 <DataListUsuarios {...register('userDebtors')} />
                 <EliminarUsuario></EliminarUsuario>
             </Estadisticas >
             <div className="gastos">
-            <Gastos></Gastos>
-           
+                <Gastos></Gastos>
+
             </div>
         </Grupo>
     );
