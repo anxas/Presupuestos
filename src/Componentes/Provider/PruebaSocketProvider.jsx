@@ -10,6 +10,7 @@ export const useSocketContext = () => {
 const socket = io('http://localhost:3000');
 
 const PruebaSocketProvider = ({ children }) => {
+
     return (
         < socketContext.Provider value={socket}>
             {children}
