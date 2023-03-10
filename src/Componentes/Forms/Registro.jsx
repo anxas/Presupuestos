@@ -96,11 +96,17 @@ const Registro = () => {
 
 
                 <input type="password" placeholder='Password' {...register('password', {
-                    required: true
+                    required: true,
+                    pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
                 })} />
-                {/* /^(?=.[A-Za-z])(?=.\d)[A-Za-z\d]{8,}$/ */}
+                
                 <div>
-                    <p></p>
+                    <p>{(errors.userEmail?.type === 'required') &&
+                        "Este campo es obligatorio"
+                    }
+                        {(errors.userEmail?.type === 'pattern') &&
+                            "Debe contener mínimo ocho caracteres, al menos una letra y un número:"
+                        }</p>
                 </div>
                 <div>
                     <button type="submit">Enviar</button>
@@ -126,9 +132,21 @@ const Container = styled.div`
         padding: 1.875em;
         
     h2{
-    font-size: 1.5em;
+
+    font-size: 2em;
     text-align: center;
     margin-top: 0;
+        color: transparent;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        text-shadow: 0px 3px 3px rgb(255, 255, 255);color: transparent;
+        background: #2e2e2e;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        text-shadow: 0px 3px 3px rgba(136, 136, 136, 0.479);
+        margin-bottom: 2%;
     }
  
     input{
@@ -136,20 +154,20 @@ const Container = styled.div`
         padding: 0.625em;
         width: 95%;
         border-radius: 4px;
-        border: 1px solid  #5c95c8;
+        border: 1px solid  #3cb8a9;
         font-size: 1em;
     }
     button{
-        background-color: #5c95c8;
+        background-color: #C30F79;
         color: white;
-        margin-top: 5%;
+        margin-top: 8%;
         font-size: 1rem;
         padding: 0.6rem;
         border-radius: 10px;
         border: none;
         box-shadow: 3px 3px #b9b8b8;
         :hover{
-            background-color:#4873aa;
+            background-color:#671E4E;
         }
         :active{
             transform: translateY(2px);
@@ -167,6 +185,7 @@ const Container = styled.div`
         margin: 0;
         p{ height: 1em;
             margin: 0;
+
             font-size: 0.8em;
             color: #d80533;
             font-weight: 600;

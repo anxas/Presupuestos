@@ -57,10 +57,11 @@ const Grupos = () => {
                         <Link key={group.groupId} to={`/grupo/${group.groupId}`}>
                             <CardGrupos {...group} />
                         </Link>
-                        <button onClick={() => { remove(group.groupId) }}>❌</button>
+                        <button onClick={() => { remove(group.groupId) }} title="Borrar Grupo">❌</button>
                     </div>
                 )) : <h1>No hay grupos</h1>}
             </Cartas>
+            <h2> + Nuevo grupo</h2>
             <FormGrupo></FormGrupo>
 
         </GeneralDiv>
@@ -71,6 +72,25 @@ export default Grupos;
 
 const GeneralDiv = styled.div`
     width: 100%;
+    h2{
+
+    display: flex;
+    justify-content: center;
+    font-size: 2em;
+        color: transparent;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        text-shadow: 0px 3px 3px rgba(255,255,255,0.5);color: transparent;
+        background: #535353;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        text-shadow: 0px 3px 3px rgba(255,255,255,0.5);
+        margin: 0;
+        margin-top: 2%;
+       
+}
 `
 const Cartas = styled.div`
 display: flex;

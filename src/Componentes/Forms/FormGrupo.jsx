@@ -2,7 +2,6 @@ import axios from "axios";
 import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import DataListUsuarios from "./DataListUsuarios";
 
 
 const FormGrupo = () => {
@@ -29,9 +28,12 @@ const FormGrupo = () => {
 
     return (
         <Formulario onSubmit={handleSubmit(creaGrupo)}>
+            
+            <div>
+                
             <input type="text" placeholder="Nuevo Grupo" {...register('groupTitle')}/>
             <input type="text" placeholder="Concepto" {...register('groupDescription')}/>
-            
+            </div>
             <button type="submit">Agregar</button>
             
         </Formulario>
@@ -42,10 +44,21 @@ export default FormGrupo
 
 
 const Formulario = styled.form`
+
+
 display: flex;
 flex-direction: column;
 margin: 2em 4em ;
+align-items: center;
+
+div{
+   
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+}
       input{
+        width: 50%;
         margin: 1%;
         padding: 0.625rem;
         border-radius: 4px;
@@ -54,7 +67,7 @@ margin: 2em 4em ;
     }
 
     button{
-        background-color: #5c95c8;
+        background-color: #C30F79;
         color: white;
         margin: 1%;
         font-size: 1rem;
@@ -64,7 +77,7 @@ margin: 2em 4em ;
         box-shadow: 3px 3px #b9b8b8;
         width: 7em;
         :hover{
-            background-color: #4873aa;
+            background-color: #671E4E;
         }
         :active{
             transform: translateY(2px);
