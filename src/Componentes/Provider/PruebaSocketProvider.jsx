@@ -7,8 +7,6 @@ export const useSocketContext = () => {
     return useContext(socketContext);
 }
 
-const socket = io('http://localhost:3000');
-
 const PruebaSocketProvider = ({ children }) => {
 
     return (
