@@ -107,9 +107,21 @@ const Container = styled.div`
         padding: 1.875em;
         
     h2{
-    font-size: 1.5em;
+    font-size: 2em;
     text-align: center;
     margin-top: 0;
+        color: transparent;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        text-shadow: 0px 3px 3px rgb(255, 255, 255);color: transparent;
+        background: #2e2e2e;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        text-shadow: 0px 3px 3px rgba(136, 136, 136, 0.479);
+        margin-bottom: 2%;
+       
     }
  
     input{
@@ -117,11 +129,11 @@ const Container = styled.div`
         padding: 0.625rem;
         width: 95%;
         border-radius: 4px;
-        border: 1px solid  #5c95c8;
+        border: 1px solid  #3cb8a9;
         font-size: 1em;
     }
     button{
-        background-color: #5c95c8;
+        background-color: #C30F79;
         color: white;
         margin-top: 5%;
         font-size: 1rem;
@@ -130,7 +142,7 @@ const Container = styled.div`
         border: none;
         box-shadow: 3px 3px #b9b8b8;
         :hover{
-            background-color: #4873aa;
+            background-color: #671E4E;
         }
         :active{
             transform: translateY(2px);

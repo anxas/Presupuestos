@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { useLocalStorage } from "../../Hooks";
 import DataListUsuarios from "../Forms/DataListUsuarios";
+import EliminarUsuario from "../Forms/EliminarUsuario";
 
 import Gastos from "../Ui/Gastos";
 
@@ -35,9 +36,11 @@ const DetalleGrupo = () => {
 
                 
                 <DataListUsuarios {...register('userDebtors')} />
+                <EliminarUsuario></EliminarUsuario>
             </Estadisticas >
             <div className="gastos">
             <Gastos></Gastos>
+           
             </div>
         </Grupo>
     );
