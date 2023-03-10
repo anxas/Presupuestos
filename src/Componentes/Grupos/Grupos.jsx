@@ -19,7 +19,7 @@ const Grupos = () => {
             if (!res.data) {
                 setArrGrupos([])
             }
-            console.log(res.data)
+
             setArrGrupos(res.data);
 
         }
