@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const Avatar = ({ userId }) => {
 
-    console.log(userId)
+
 
     const [image, setImage] = useState(null)
 
@@ -14,9 +14,7 @@ const Avatar = ({ userId }) => {
                 const response = await axios.get(`http://localhost:3000/users/groups/avatar/${userId}`)
                 if (response) {
                     setImage(response.data.imagePath)
-                    console.log(response)
-                    console.log(response.data)
-                    console.log(response.data.imagePath)
+                    
                 }
 
             } catch (error) {

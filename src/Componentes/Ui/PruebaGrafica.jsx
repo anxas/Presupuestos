@@ -41,18 +41,19 @@ const PruebaGrafica = () => {
         }
     })
 
+    
     return (
         <DivGeneral>
 
-            <Flexbox>
+            <Flexbox >
                 <div>
 
                 </div>
                 <div>
                     <GraficaTotal dataGroup={dataGroup} />
                 </div>
-                <div>
-                    <div >
+                <div >
+                    <div key={dataGroup.userId}>
                         {dataGroup.map(user => (
                             <GraficaBarra user={user} totalDeuda={totalDeuda} />
                         ))}

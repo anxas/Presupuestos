@@ -90,7 +90,7 @@ margin: 1em;
     }
 
     button{
-        background-color: #5c95c8;
+        background-color: #C30F79;
         color: white;
         margin: 1%;
         font-size: 1rem;
@@ -100,7 +100,8 @@ margin: 1em;
         box-shadow: 3px 3px #b9b8b8;
         width: 7em;
         :hover{
-            background-color: #4873aa;
+            background-color: #970c5d;
+            transition: 0.5s;
         }
         :active{
             transform: translateY(2px);

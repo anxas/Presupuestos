@@ -24,7 +24,7 @@ const Formularios = styled.div`
     align-items: flex-start;
    @media(max-width: 1000px){
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
     
     /* flex-direction: column;

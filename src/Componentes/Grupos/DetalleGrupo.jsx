@@ -35,8 +35,8 @@ const DetalleGrupo = () => {
                 <PruebaGrafica />
 
                 
-                <DataListUsuarios {...register('userDebtors')} />
                 <EliminarUsuario></EliminarUsuario>
+                <DataListUsuarios {...register('userDebtors')} />
             </Estadisticas >
             <div className="gastos">
             <Gastos></Gastos>

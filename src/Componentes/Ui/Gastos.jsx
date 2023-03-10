@@ -22,7 +22,7 @@ const Gastos = () => {
 
 
     const remove = ((slices) => {
-        console.log(slices)
+       
         if (window.confirm("Quieres eliminar el grupo?")) {
             
             axios.delete(`http://localhost:3000/users/groups/${groupId}/slices/${slices}/delete`).then(() => {
@@ -74,7 +74,7 @@ const DivGeneral = styled.div`
 }
 
 .titulo{
-     /* display: flex;
+     display: flex;
    justify-content: center;
    font-size: 2em;
    font-weight: 800;
@@ -89,7 +89,7 @@ const DivGeneral = styled.div`
     background-clip: text;
     text-shadow: 0px 3px 3px rgba(255,255,255,0.5);
     margin-bottom: 2%;
-    margin-top:1.5%;  */
+    margin-top:1.5%; 
 }
 `
 
@@ -113,6 +113,7 @@ const Deudas = styled.div`
         cursor: pointer;
         :hover{
             transform: scale(1.2);
+            transition: 0.5s;
         }
     
     }

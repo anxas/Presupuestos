@@ -18,17 +18,19 @@ function Navbar() {
     localStorage.removeItem('token');
     
     setIsLogged(false);
-    navigate('/login');
+    
     if(setIsLogged){
-
-    }else{
+    
       await Swal.fire({
         title: 'Logout correcto',
         text: 'Esperamos verte de nuevo pronto',
         icon: 'success'
       })
-    }
     
+    }else{
+    
+    }
+    navigate('/login');
   }
 
   const [clicked, setClicked] = useState()
@@ -164,7 +166,7 @@ const NavContainer = styled.nav`
     background-image: linear-gradient(to right, #af126e,  #18f0c1);
     :hover{
       background-image: linear-gradient(to right,  #740c48,  #12977a);
-      
+      transition: 0.5s;
       }
     }
 

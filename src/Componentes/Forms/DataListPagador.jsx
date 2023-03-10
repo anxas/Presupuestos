@@ -37,8 +37,9 @@ const DataListPagador = (props) => {
 
     return (
         <DivGeneral>
-        <p>Quien ha pagado?</p>
+        <p>¿Quien ha pagado?</p>
             <Select
+                placeholder="Elige el pagador"
                 options={data.map(user => ({ label: user.player.charAt(0).toUpperCase() + user.player.slice(1), value: user.userId}))}
                 onChange={handleSelectChange}
             />
@@ -54,7 +55,9 @@ const DivGeneral = styled.div`
   margin-bottom: 20px;
     border-radius: 4px;
     p{
+    color: #585858;
     margin: auto;
+    margin-bottom: 5px;
 }
 
 `

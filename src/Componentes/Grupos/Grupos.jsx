@@ -29,7 +29,7 @@ const Grupos = () => {
     const remove = ((group) => {
 
         if (window.confirm("Quieres eliminar el grupo?")) {
-            console.log(group)
+           
             axios.delete(`http://localhost:3000/users/groups/${group}/delete`).then(() => {
                 window.location.reload()
             }).catch((err) => {
@@ -59,7 +59,13 @@ const Grupos = () => {
                         </Link>
                         <button onClick={() => { remove(group.groupId) }} title="Borrar Grupo">❌</button>
                     </div>
-                )) : <h1>No hay grupos</h1>}
+                )) : 
+                <div className="notGrupo">
+                    <h4>No hay grupos creados todavia 🙄</h4>
+                    <h3>Puedes agregar uno nuevo debajo</h3>
+                    <p>👇🏼</p>
+                </div>
+                }
             </Cartas>
             <h2> + Nuevo grupo</h2>
             <FormGrupo></FormGrupo>
@@ -72,6 +78,30 @@ export default Grupos;
 
 const GeneralDiv = styled.div`
     width: 100%;
+
+    .notGrupo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        p{
+            margin-top: 0;
+            font-size: 2em;
+        }
+    h4{
+        color: #3d3d3d;
+        margin-bottom: 0;
+        background-color: #FAC898;
+        padding: 1em;
+        border-radius: 20px;
+        font-size: 1.5em;
+    }
+    h3{
+        color: #3d3d3d;
+        font-weight: 600;
+        margin: 0;
+        padding: 1em;
+    }
+}
     h2{
 
     display: flex;
@@ -111,6 +141,7 @@ button{
         cursor: pointer;
         :hover{
             transform: scale(1.2);
+            transition: 0.5s;
         }
     
     }

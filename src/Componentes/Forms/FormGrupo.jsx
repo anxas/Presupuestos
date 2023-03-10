@@ -14,12 +14,12 @@ const FormGrupo = () => {
     const creaGrupo = async (values) => {
         const res = await axios.post('http://localhost:3000/users/groups/new', values)
         if (res.data.fatal) {
-            console.log(values)
+            console.log(res.data.fatal)
 
         } else {
             window.location.reload()
             
-            console.log(values)
+           
         }
     }
 
@@ -32,6 +32,7 @@ const FormGrupo = () => {
             <div>
                 
             <input type="text" placeholder="Nuevo Grupo" {...register('groupTitle')}/>
+            
             <input type="text" placeholder="Concepto" {...register('groupDescription')}/>
             </div>
             <button type="submit">Agregar</button>
@@ -78,6 +79,7 @@ div{
         width: 7em;
         :hover{
             background-color: #671E4E;
+            transition: 0.5s;
         }
         :active{
             transform: translateY(2px);

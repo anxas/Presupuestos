@@ -12,17 +12,19 @@ const CardGrupos = ({ groupTitle, groupDescription, players }) => {
         <GruposDiv>
             <div className="descripciones">
                 <h3>
-                    {groupTitle}
+                    {groupTitle.charAt(0).toUpperCase()}{groupTitle.slice(1)}
                 </h3>
                 <h4>{groupDescription}</h4>
             </div>
             <div>
                 <h4>Participantes:</h4>
-                <p>{players.map(user => user.player.charAt(0).toUpperCase() + user.player.slice(1)).join(", ")}</p>
-            </div>
+                
+        
             <Flexbox>
                 {players.map(user => <Avatar userId={user.userId} />)}
             </Flexbox>
+            <p>{players.map(user => user.player.charAt(0).toUpperCase() + user.player.slice(1)).join(",ㅤ")}</p>
+            </div>
         </GruposDiv>
 
     )
@@ -47,7 +49,11 @@ const GruposDiv = styled.div`
     align-items: flex-start;
     padding: 1em;
     border-radius: 10px;
-  
+  p{
+    background-color: #8a8888;
+    padding: 12px;
+    border-radius: 20px;
+  }
  .descripciones{
     display: flex;
     flex-direction: row;
@@ -71,6 +77,7 @@ const GruposDiv = styled.div`
     :hover{
         background-color: #6b6b6b;
         border-bottom: 0.3em solid #ce1581;
+        transition: 0.5s;
 
     }
     

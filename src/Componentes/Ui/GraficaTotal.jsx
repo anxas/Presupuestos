@@ -113,7 +113,7 @@ const GraficaTotal = ({ dataGroup }) => {
     const colorspaytratado = colorspay.map(color => `rgb(${color[0]}, ${color[1]}, ${color[2]})`)
 
     let colorlist = [colorspaytratado.concat(colorsdebttratado)]
-    console.log(labels)
+    
 
     const Data = {
         labels: labels,

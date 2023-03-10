@@ -27,12 +27,12 @@ const Contacto = () => {
 
         <Formulario ref={form} onSubmit={sendEmail}>
             <label>Nombre y apellidos</label>
-            <input type="text" name="user_name" />
+            <input type="text" name="user_name" placeholder='Nombre y apellidos' />
             <label>Email</label>
-            <input type="email" name="user_email" />
+            <input type="email" name="user_email" placeholder='Email' />
             <label>Mensaje</label>
-            <textarea name="mensaje" />
-            <button type="submit" value="Send">Enviar</button>
+            <textarea name="mensaje" placeholder='Mensaje'/>
+            <button title="Enviar correo"type="submit" value="Send">Enviar</button>
         </Formulario>
 
 

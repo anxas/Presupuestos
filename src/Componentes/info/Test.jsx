@@ -50,11 +50,11 @@ const Checks = styled.div`
 display: flex;
 flex-direction: column;
 font-size: 1.5em;
-background-color: #B7D6B7;
+background-color: #d1d3d1;
 width: fit-content;
 padding: 1em;
 border-radius: 10px;
-border: 2px solid #839983;
+border: 2px solid #444444;
 
 input{
     width: 1.5em;

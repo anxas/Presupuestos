@@ -20,7 +20,7 @@ const DataListUsuarios = () => {
 
     const agregaUser = (values)=>{
         axios.post(`http://localhost:3000/users/groups/${groupId}/addUser`, values)
-        .then( res => console.log(res.data))
+        .then( res =>  window.location.reload())
         .catch(err=>console.log(err))
     }
 
@@ -77,6 +77,10 @@ flex-direction: column;
 background-color: #818181;
 padding: 20px;
 border-radius: 20px;
+@media(max-width: 768px){
+    
+    width: 85%;
+}
 h2{
     font-weight: 900;
     margin: 0;

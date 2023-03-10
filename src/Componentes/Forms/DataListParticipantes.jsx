@@ -34,14 +34,14 @@ const DataListParticipantes = (props) => {
        
         // console.log({event, value})
         props.setDeudores(value.map(e => e.value))
-        console.log(props)
+     
     }
     
     const data = participantes
 
     return (
         <DivGeneral>
-            <p>Participantes</p>
+            <p>Participantes:</p>
             <Select
                 placeholder="Elige los participantes"
                 isMulti
@@ -60,7 +60,9 @@ const DivGeneral = styled.div`
   margin-bottom: 20px;
     border-radius: 4px;
 p{
+    color: #585858;
     margin: auto;
+    margin-bottom: 5px;
 }
 
 `

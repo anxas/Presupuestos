@@ -143,6 +143,7 @@ const Container = styled.div`
         box-shadow: 3px 3px #b9b8b8;
         :hover{
             background-color: #671E4E;
+            transition: 0.5s;
         }
         :active{
             transform: translateY(2px);
