@@ -36,11 +36,12 @@ const DetalleGrupo = () => {
 
                 
                 <EliminarUsuario></EliminarUsuario>
+
                 <DataListUsuarios {...register('userDebtors')} />
             </Estadisticas >
             <div className="gastos">
-            <Gastos></Gastos>
-           
+                <Gastos></Gastos>
+
             </div>
         </Grupo>
     );
