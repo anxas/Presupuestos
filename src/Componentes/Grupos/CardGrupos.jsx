@@ -1,11 +1,14 @@
 import axios from "axios";
 import { useEffect } from "react";
 import styled from "styled-components";
+import Avatar from "../Ui/Avatar";
 
 const CardGrupos = ({ groupTitle, groupDescription, players }) => {
 
 
     return (
+
+
         <GruposDiv>
             <div className="descripciones">
                 <h3>
@@ -17,10 +20,20 @@ const CardGrupos = ({ groupTitle, groupDescription, players }) => {
                 <h4>Participantes:</h4>
                 <p>{players.map(user => user.player.charAt(0).toUpperCase() + user.player.slice(1)).join(", ")}</p>
             </div>
+            <Flexbox>
+                {players.map(user => <Avatar userId={user.userId} />)}
+            </Flexbox>
         </GruposDiv>
+
     )
 }
 export default CardGrupos;
+
+const Flexbox = styled.div`
+width: 100%;
+ display:flex;
+ flex-direction: row;
+justify-content: flex-start;`
 
 const TituloDiv = styled.div`
     
